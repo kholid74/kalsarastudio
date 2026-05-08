@@ -1,0 +1,133 @@
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Sora:wght@400;600;700&display=swap');
+@import "tailwindcss";
+@config "../../tailwind.config.mjs";
+
+:root {
+  /* Primary palette — Midnight Blue + Cyan */
+  --color-primary: #0B1F3A;        /* Midnight navy — heading, navbar bg */
+  --color-primary-light: #1F6FEB;  /* Electric blue — button, link */
+  --color-accent: #6EE7F9;         /* Cyan — highlight, badge, aksen */
+  --color-accent-dim: rgba(110, 231, 249, 0.12); /* Cyan transparan — badge bg */
+
+  /* Background */
+  --color-bg: #F8FAFC;             /* Cool white — page background */
+  --color-surface: #F1F5F8;        /* Slightly darker — card, section alt */
+  --color-surface-dark: #0B1F3A;   /* Dark navy — dark sections */
+
+  /* Text */
+  --color-text-heading: #0B1F3A;   /* Dark navy — semua heading */
+  --color-text-body: #64748B;      /* Slate 500 — paragraf, deskripsi */
+  --color-text-muted: #94A3B8;     /* Slate 400 — caption, metadata */
+  --color-text-inverse: #F8FAFC;   /* Untuk teks di atas dark bg */
+
+  /* Border */
+  --color-border: #E2E8F0;         /* Subtle border */
+  --color-border-dark: #1E3A5F;    /* Border di dark section */
+
+  /* Status */
+  --color-success: #1D9E75;
+  --color-warning: #EF9F27;
+
+  /* Typography */
+  --font-display: 'Sora', sans-serif;
+  --font-body: 'Plus Jakarta Sans', sans-serif;
+
+  /* Scale */
+  --text-xs: 0.75rem;    /* 12px — caption, badge */
+  --text-sm: 0.875rem;   /* 14px — label, meta */
+  --text-base: 1rem;     /* 16px — body default */
+  --text-lg: 1.125rem;   /* 18px — lead text */
+  --text-xl: 1.25rem;    /* 20px — card title */
+  --text-2xl: 1.5rem;    /* 24px — section subtitle */
+  --text-3xl: 1.875rem;  /* 30px — section title */
+  --text-4xl: 2.25rem;   /* 36px — hero title */
+  --text-5xl: 3rem;      /* 48px — hero title large */
+
+  /* Spacing & Border Radius */
+  --radius-sm: 0.375rem;   /* 6px */
+  --radius-md: 0.625rem;   /* 10px */
+  --radius-lg: 0.875rem;   /* 14px */
+  --radius-xl: 1.25rem;    /* 20px — card */
+  --radius-full: 9999px;   /* pill */
+
+  --shadow-sm: 0 1px 3px rgba(11,31,58,0.08);
+  --shadow-md: 0 4px 16px rgba(11,31,58,0.10);
+  --shadow-lg: 0 8px 32px rgba(11,31,58,0.14);
+}
+
+html { 
+  scroll-behavior: smooth; 
+  font-family: var(--font-body);
+  color: var(--color-text-body);
+  background-color: var(--color-bg);
+}
+
+@layer base {
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-display);
+    color: var(--color-text-heading);
+  }
+}
+
+/* Animations from Section 7 */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in {
+  animation: fadeInUp 0.6s ease forwards;
+  opacity: 0;
+}
+
+.stagger-1 { animation-delay: 0.1s; }
+.stagger-2 { animation-delay: 0.2s; }
+.stagger-3 { animation-delay: 0.3s; }
+.stagger-4 { animation-delay: 0.4s; }
+
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+
+.marquee-track {
+  animation: marquee 20s linear infinite;
+}
+
+/* Placeholder specific */
+.logo-placeholder {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.portfolio-thumb {
+  aspect-ratio: 16/9;
+  border-radius: var(--radius-md);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 1.25rem;
+}
+
+.avatar {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background-color: var(--color-surface);
+  color: var(--color-primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 1.25rem;
+}

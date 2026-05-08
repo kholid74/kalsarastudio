@@ -1,0 +1,55 @@
+---
+import SectionHeader from '../ui/SectionHeader.astro';
+import { faq } from '../../data/faq';
+import { Icon } from 'astro-icon/components';
+---
+
+<section id="faq" class="py-24 bg-[var(--color-bg)]">
+  <div class="container mx-auto px-4 md:px-6">
+    <SectionHeader
+      badge="PERTANYAAN UMUM"
+      title="Pertanyaan yang sering ditanyakan."
+    />
+
+    <div class="max-w-3xl mx-auto animate-fade-in stagger-2">
+      <div class="space-y-4">
+        {faq.map((item, index) => (
+          <details class="group bg-white rounded-[var(--radius-md)] border border-[var(--color-border)] shadow-sm overflow-hidden" name="faq-accordion">
+            <summary class="flex items-center justify-between p-6 font-display font-semibold text-[var(--color-text-heading)] cursor-pointer list-none hover:bg-[var(--color-surface)] transition-colors">
+              <span class="pr-6 text-base md:text-lg">{item.q}</span>
+              <span class="shrink-0 w-8 h-8 flex items-center justify-center rounded-full bg-[var(--color-surface)] group-open:bg-[var(--color-primary-light)] group-open:text-white transition-colors duration-200">
+                <Icon name="lucide:chevron-down" class="w-5 h-5 transition-transform duration-300 group-open:rotate-180" />
+              </span>
+            </summary>
+            <div class="p-6 pt-0 text-[var(--color-text-body)] leading-relaxed">
+              {item.a}
+            </div>
+          </details>
+        ))}
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  /* Hide default details marker in WebKit */
+  details > summary::-webkit-details-marker {
+    display: none;
+  }
+  
+  /* Smooth accordion animation using grid */
+  details {
+    interpolate-size: allow-keywords;
+  }
+  
+  details::details-content {
+    display: block;
+    overflow: hidden;
+    height: 0;
+    transition: height 300ms ease-in-out;
+  }
+  
+  details[open]::details-content {
+    height: auto;
+  }
+</style>

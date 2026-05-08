@@ -1,0 +1,67 @@
+---
+import Button from '../ui/Button.astro';
+---
+
+<section id="hero" class="relative min-h-screen pt-32 pb-24 overflow-hidden bg-[var(--color-surface-dark)] flex flex-col justify-center">
+  <!-- Dot Pattern Background -->
+  <div class="absolute inset-0 opacity-10" style="background-image: radial-gradient(var(--color-accent) 1px, transparent 1px); background-size: 24px 24px;"></div>
+  
+  <div class="container relative z-10 mx-auto px-4 md:px-6">
+    <div class="max-w-4xl mx-auto text-center mb-16">
+      <!-- Badge -->
+      <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[var(--color-accent-dim)] mb-8 animate-fade-in stagger-1">
+        <span class="text-xs font-bold tracking-widest text-[var(--color-accent)]">SOLUSI DIGITAL · INDONESIA</span>
+        <span class="text-[var(--color-accent)]">✦</span>
+      </div>
+
+      <!-- Headline -->
+      <h1 class="font-display text-4xl md:text-5xl lg:text-6xl font-bold leading-tight text-[var(--color-text-inverse)] mb-6 animate-fade-in stagger-2">
+        Website yang tumbuh<br/>
+        <span class="text-[var(--color-accent)]">bersama bisnis kamu.</span>
+      </h1>
+
+      <!-- Subtext -->
+      <p class="text-lg md:text-xl text-[var(--color-text-muted)] max-w-3xl mx-auto mb-10 leading-relaxed animate-fade-in stagger-3">
+        Website bukan sekadar alamat di internet.<br/>
+        Ia adalah cara orang pertama kali mengenal, menilai,<br/>
+        dan memutuskan untuk menghubungi bisnis kamu.
+      </p>
+
+      <!-- CTAs -->
+      <div class="flex flex-col sm:flex-row items-center justify-center gap-4 animate-fade-in stagger-4">
+        <Button href="#portfolio" variant="primary" size="lg" class="w-full sm:w-auto">
+          Lihat portofolio &rarr;
+        </Button>
+        <Button href="#contact" variant="ghost" size="lg" class="w-full sm:w-auto">
+          Konsultasi gratis via WhatsApp
+        </Button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Services Marquee -->
+  <div class="absolute bottom-0 left-0 w-full overflow-hidden py-4 border-t border-[var(--color-border-dark)] bg-[var(--color-primary)]">
+    <div class="flex w-[200%] marquee-track text-[var(--color-text-muted)] font-semibold text-sm tracking-widest uppercase">
+      <div class="flex w-1/2 justify-around items-center px-4">
+        <span>Landing Page</span><span>·</span>
+        <span>Company Profile</span><span>·</span>
+        <span>Toko Online</span><span>·</span>
+        <span>Sistem Booking</span><span>·</span>
+        <span>Notifikasi Otomatis</span><span>·</span>
+        <span>Pembayaran Online</span><span>·</span>
+        <span>Kelola Konten Mandiri</span><span>·</span>
+        <span>Tampil di Google</span>
+      </div>
+      <div class="flex w-1/2 justify-around items-center px-4">
+        <span>Landing Page</span><span>·</span>
+        <span>Company Profile</span><span>·</span>
+        <span>Toko Online</span><span>·</span>
+        <span>Sistem Booking</span><span>·</span>
+        <span>Notifikasi Otomatis</span><span>·</span>
+        <span>Pembayaran Online</span><span>·</span>
+        <span>Kelola Konten Mandiri</span><span>·</span>
+        <span>Tampil di Google</span>
+      </div>
+    </div>
+  </div>
+</section>

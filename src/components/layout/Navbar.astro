@@ -1,0 +1,186 @@
+---
+import { Icon } from 'astro-icon/components';
+import Button from '../ui/Button.astro';
+
+const navLinks = [
+  { name: 'Layanan', href: '#services' },
+  { name: 'Portofolio', href: '#portfolio' },
+  { name: 'Proses', href: '#process' },
+  { name: 'Tentang', href: '#about' },
+  { name: 'FAQ', href: '#faq' },
+];
+---
+
+<header id="navbar" class="fixed top-0 w-full z-50 transition-all duration-300 py-4 border-b border-transparent">
+  <div class="container mx-auto px-4 md:px-6">
+    <div class="flex items-center justify-between">
+      
+      <!-- Logo -->
+      <a href="#hero" class="relative z-10 group">
+        <img
+          src="/kalsara_logo.png"
+          alt="Kalsara Studio"
+          class="logo-img h-8 md:h-9 w-auto"
+          width="111"
+          height="36"
+        />
+      </a>
+
+      <!-- Desktop Nav -->
+      <nav class="hidden md:flex items-center gap-8">
+        <ul class="flex items-center gap-6">
+          {navLinks.map(link => (
+            <li>
+              <a 
+                href={link.href} 
+                class="nav-link text-sm font-semibold text-[var(--color-text-body)] hover:text-[var(--color-primary-light)] transition-colors"
+                data-target={link.href.replace('#', '')}
+              >
+                {link.name}
+              </a>
+            </li>
+          ))}
+        </ul>
+      </nav>
+
+    <!-- Actions -->
+    <div class="hidden md:flex items-center gap-6">
+      <Button href="#contact" variant="primary" size="sm">
+        Konsultasi Gratis
+      </Button>
+    </div>
+
+    <!-- Mobile Menu Toggle -->
+    <button id="mobile-menu-btn" class="md:hidden flex items-center justify-center p-2 text-[var(--color-text-heading)] hover:text-[var(--color-primary-light)] transition-colors" aria-label="Toggle Menu">
+      <Icon name="lucide:menu" class="w-6 h-6" />
+    </button>
+  </div>
+
+  <!-- Mobile Menu Dropdown -->
+  <div id="mobile-menu" class="hidden md:hidden absolute top-[72px] left-0 w-full bg-white border-b border-[var(--color-border)] shadow-lg px-4 py-6 flex-col gap-4">
+    {navLinks.map(link => (
+      <a href={link.href} class="text-base font-semibold text-[var(--color-text-heading)] hover:text-[var(--color-primary-light)] transition-colors mobile-link">
+        {link.name}
+      </a>
+    ))}
+    
+    <div class="h-px bg-[var(--color-border)] my-2"></div>
+
+    <Button href="#contact" variant="primary" size="lg" class="w-full justify-center mobile-link">
+      Konsultasi Gratis
+    </Button>
+  </div>
+</header>
+
+<style>
+  #navbar.scrolled {
+    background-color: rgba(248, 250, 252, 0.85); /* var(--color-bg) with opacity */
+    backdrop-filter: blur(12px);
+    border-bottom-color: var(--color-border);
+    padding-top: 0.75rem;
+    padding-bottom: 0.75rem;
+  }
+
+  /* Logo filter transitions */
+  .logo-img {
+    transition: filter 0.3s ease;
+  }
+
+  /* On dark hero: invert logo to white */
+  #navbar:not(.scrolled) .logo-img {
+    filter: brightness(0) invert(1);
+  }
+
+  #navbar:not(.scrolled) .nav-link {
+    color: rgba(248, 250, 252, 0.8);
+  }
+  #navbar:not(.scrolled) .nav-link:hover {
+    color: var(--color-accent);
+  }
+  
+  .nav-link.active {
+    color: var(--color-primary-light) !important;
+  }
+  #navbar:not(.scrolled) .nav-link.active {
+    color: var(--color-accent) !important;
+  }
+</style>
+
+<script>
+  const navbar = document.getElementById('navbar');
+  const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+  const mobileMenu = document.getElementById('mobile-menu');
+  const iconOpen = document.querySelector('.icon-open');
+  const iconClose = document.querySelector('.icon-close');
+  const mobileLinks = document.querySelectorAll('.mobile-nav-link');
+  
+  // Scroll behavior
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > 50) {
+      navbar?.classList.add('scrolled');
+    } else {
+      navbar?.classList.remove('scrolled');
+    }
+  });
+
+  // Init scroll check
+  if (window.scrollY > 50) {
+    navbar?.classList.add('scrolled');
+  }
+
+  // Mobile menu toggle
+  let isMenuOpen = false;
+  
+  function toggleMenu() {
+    isMenuOpen = !isMenuOpen;
+    if (isMenuOpen) {
+      mobileMenu?.classList.remove('opacity-0', 'pointer-events-none');
+      iconOpen?.classList.add('hidden');
+      iconClose?.classList.remove('hidden');
+      document.body.style.overflow = 'hidden';
+    } else {
+      mobileMenu?.classList.add('opacity-0', 'pointer-events-none');
+      iconOpen?.classList.remove('hidden');
+      iconClose?.classList.add('hidden');
+      document.body.style.overflow = '';
+    }
+  }
+
+  mobileMenuBtn?.addEventListener('click', toggleMenu);
+  
+  mobileLinks.forEach(link => {
+    link.addEventListener('click', () => {
+      if (isMenuOpen) toggleMenu();
+    });
+  });
+
+  // Active state observer
+  const observerOptions = {
+    root: null,
+    rootMargin: '-20% 0px -80% 0px',
+    threshold: 0
+  };
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const id = entry.target.getAttribute('id');
+        const navLinks = document.querySelectorAll('.nav-link');
+        navLinks.forEach(link => {
+          if (link.getAttribute('data-target') === id) {
+            link.classList.add('active');
+          } else {
+            link.classList.remove('active');
+          }
+        });
+      }
+    });
+  }, observerOptions);
+
+  // Setup will be completed in index.astro when sections are rendered
+  setTimeout(() => {
+    document.querySelectorAll('section[id]').forEach(section => {
+      observer.observe(section);
+    });
+  }, 100);
+</script>

@@ -1,0 +1,110 @@
+---
+import SectionHeader from '../ui/SectionHeader.astro';
+import { portfolio } from '../../data/portfolio';
+---
+
+<section id="portfolio" class="py-24 bg-[var(--color-surface-dark)]">
+  <div class="container mx-auto px-4 md:px-6">
+    <SectionHeader
+      badge="PORTOFOLIO"
+      title="Ini yang sudah kami bangun."
+      subtitle="Setiap proyek dimulai dari memahami klien."
+      light={true}
+    />
+
+    <!-- Filter Tabs -->
+    <div class="flex flex-wrap justify-center gap-2 mb-12 animate-fade-in stagger-2">
+      {['Semua', 'Landing Page', 'Company Profile', 'E-commerce', 'Web App'].map((tab, i) => (
+        <button 
+          class={`filter-btn px-4 py-2 rounded-full text-sm font-semibold transition-colors ${i === 0 ? 'active bg-[var(--color-primary-light)] text-white' : 'bg-[var(--color-primary)] text-[var(--color-text-muted)] hover:text-white hover:bg-[#1A3A5F]'}`}
+          data-filter={tab}
+        >
+          {tab}
+        </button>
+      ))}
+    </div>
+
+    <!-- Portfolio Grid -->
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" id="portfolio-grid">
+      {portfolio.map((item, index) => (
+        <div
+          class={`portfolio-item group flex flex-col bg-[var(--color-primary)] rounded-[var(--radius-xl)] overflow-hidden border border-[var(--color-border-dark)] animate-fade-in stagger-${(index % 3) + 1} min-h-[420px]`}
+          data-category={item.category}
+        >
+          
+          <!-- Thumbnail Placeholder -->
+          <div 
+            class="portfolio-thumb relative overflow-hidden" 
+            style={`background: linear-gradient(135deg, ${item.color}, ${item.accentColor}22)`}
+          >
+            <span class="relative z-10 transition-transform duration-500 group-hover:scale-110">{item.name}</span>
+            <div class="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+          </div>
+
+          <div class="p-6 flex-1 flex flex-col">
+            <div class="flex items-center justify-between mb-4">
+              <span class="text-xs font-bold text-[var(--color-accent)] tracking-wider uppercase">{item.industry}</span>
+              <span class="text-xs text-[var(--color-text-muted)]">{item.category}</span>
+            </div>
+            
+            <h3 class="font-display text-xl font-bold text-[var(--color-text-inverse)] mb-3">{item.name}</h3>
+            <p class="text-[var(--color-text-muted)] text-sm leading-relaxed mb-6 flex-1">{item.description}</p>
+            
+            <div class="flex flex-wrap gap-2 mb-6">
+              {item.stack.map(tech => (
+                <span class="px-2 py-1 bg-[var(--color-surface-dark)] text-[#94A3B8] text-xs rounded-[var(--radius-sm)] border border-[var(--color-border-dark)]">
+                  {tech}
+                </span>
+              ))}
+            </div>
+
+            <a href={`/portfolio/${item.slug}`} class="inline-flex items-center font-semibold text-sm text-[var(--color-primary-light)] hover:text-[var(--color-accent)] transition-colors group/link">
+              Lihat detail 
+              <span class="ml-1 transition-transform group-hover/link:translate-x-1">&rarr;</span>
+            </a>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<script>
+  // Script akan dijalankan di client-side (browser)
+  const filterBtns = document.querySelectorAll('.filter-btn');
+  const portfolioItems = document.querySelectorAll('.portfolio-item');
+
+  filterBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      // 1. Reset class semua button ke state inactive
+      filterBtns.forEach(b => {
+        b.classList.remove('active', 'bg-[var(--color-primary-light)]', 'text-white');
+        b.classList.add('bg-[var(--color-primary)]', 'text-[var(--color-text-muted)]');
+      });
+
+      // 2. Set button yang diklik ke state active
+      btn.classList.add('active', 'bg-[var(--color-primary-light)]', 'text-white');
+      btn.classList.remove('bg-[var(--color-primary)]', 'text-[var(--color-text-muted)]');
+
+      const filterValue = btn.getAttribute('data-filter');
+
+      // 3. Tampilkan/Sembunyikan portfolio items
+      portfolioItems.forEach(item => {
+        const itemCategory = item.getAttribute('data-category');
+        
+        if (filterValue === 'Semua' || filterValue === itemCategory) {
+          // Tampilkan dengan display flex karena aslinya flex-col
+          (item as HTMLElement).style.display = 'flex';
+          
+          // Re-trigger animasi fade in agar terlihat smooth
+          item.classList.remove('animate-fade-in', 'in-view');
+          void (item as HTMLElement).offsetWidth; // trigger reflow
+          item.classList.add('animate-fade-in', 'in-view');
+        } else {
+          // Sembunyikan item
+          (item as HTMLElement).style.display = 'none';
+        }
+      });
+    });
+  });
+</script>
