@@ -17,7 +17,7 @@ export const testimonials = [
     name: "Siti Rahayu",
     business: "Konsultan HR Rahayu, Jakarta Selatan",
     avatar: "/avatars/siti.jpg",
-    quote: "Yang saya suka adalah harganya langsung jelas di awal — tidak ada biaya dadakan. Dan setelah website live, masih dibantu 30 hari. Terakhir saya pakai freelancer, langsung kabur setelah transfer.",
+    quote: "Yang saya suka adalah harganya langsung jelas di awal — tidak ada biaya dadakan. Dan setelah website live, tim Kalsara masih bisa dihubungi. Itu yang paling saya apresiasi.",
     rating: 5,
   },
 ];
