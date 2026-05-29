@@ -96,3 +96,11 @@ test.describe('FAQ Section', () => {
     await expect(firstDetails).toHaveAttribute('open');
   });
 });
+
+test.describe('Final CTA Section', () => {
+  test('final CTA links to WhatsApp', async ({ page }) => {
+    await page.goto('/');
+    const cta = page.locator('#cta a[href*="wa.me"]');
+    await expect(cta).toBeVisible();
+  });
+});
