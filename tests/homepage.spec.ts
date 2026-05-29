@@ -79,3 +79,20 @@ test.describe('Pricing Section', () => {
     expect(href).toContain('wa.me');
   });
 });
+
+test.describe('FAQ Section', () => {
+  test('shows 6 FAQ items', async ({ page }) => {
+    await page.goto('/');
+    const items = page.locator('#faq details');
+    await expect(items).toHaveCount(6);
+  });
+
+  test('FAQ accordion opens on click', async ({ page }) => {
+    await page.goto('/');
+    const firstSummary = page.locator('#faq details summary').first();
+    const firstDetails = page.locator('#faq details').first();
+    await expect(firstDetails).not.toHaveAttribute('open');
+    await firstSummary.click();
+    await expect(firstDetails).toHaveAttribute('open');
+  });
+});

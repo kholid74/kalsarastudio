@@ -1,0 +1,61 @@
+---
+import SectionLabel from '../ui/SectionLabel.astro';
+
+const faqs = [
+  {
+    q: 'Apakah domain dan hosting sudah termasuk dalam harga?',
+    a: 'Biaya domain dan hosting tidak termasuk dalam paket harga kami. Kami akan memberikan rekomendasi penyedia hosting yang sesuai dengan kebutuhan dan anggaran Anda, serta membantu proses setup-nya.',
+  },
+  {
+    q: 'Berapa lama proses pengerjaan website?',
+    a: 'Tergantung pada kompleksitas proyek. Company profile dan landing page biasanya selesai dalam 2–3 minggu. E-commerce 3–5 minggu. Custom web application didiskusikan berdasarkan scope pekerjaan.',
+  },
+  {
+    q: 'Berapa kali revisi yang diperbolehkan?',
+    a: 'Setiap paket mencakup revisi yang disepakati di awal dalam proposal. Revisi di luar scope dapat diakomodasi dengan biaya tambahan yang transparan sebelum dikerjakan.',
+  },
+  {
+    q: 'Siapa yang memiliki source code dan konten website?',
+    a: 'Anda. Setelah pelunasan, seluruh source code, aset, dan konten website menjadi hak milik Anda sepenuhnya. Tidak ada biaya lisensi atau ketergantungan pada platform kami.',
+  },
+  {
+    q: 'Apakah ada layanan maintenance setelah website diluncurkan?',
+    a: 'Ya. Setiap paket mencakup periode support setelah launch. Kami juga menyediakan paket maintenance bulanan untuk update konten, keamanan, dan performa — yang bisa didiskusikan sesuai kebutuhan.',
+  },
+  {
+    q: 'Apakah website yang dibangun bisa dikembangkan menjadi aplikasi lebih besar?',
+    a: 'Inilah salah satu keunggulan utama Kalsara. Website yang kami bangun menggunakan arsitektur yang dapat berkembang. Ketika bisnis Anda siap, kami dapat membangun dashboard, CRM, sistem internal, atau aplikasi custom di atas fondasi yang sudah ada.',
+  },
+] as const;
+---
+
+<section class="bg-white py-20 md:py-28 px-6" id="faq">
+  <div class="max-w-site mx-auto">
+    <div class="mb-12">
+      <SectionLabel class="mb-3">Pertanyaan Umum</SectionLabel>
+      <h2 class="font-heading font-extrabold text-3xl md:text-4xl text-ink">
+        Pertanyaan yang Sering Ditanyakan.
+      </h2>
+    </div>
+
+    <div class="divide-y divide-border">
+      {faqs.map((faq) => (
+        <details class="group py-5">
+          <summary class="flex items-center justify-between gap-4 cursor-pointer list-none">
+            <span class="font-heading font-semibold text-base text-ink">
+              {faq.q}
+            </span>
+            <span class="flex-shrink-0 w-6 h-6 rounded-full border border-border flex items-center justify-center transition-transform group-open:rotate-45">
+              <svg xmlns="http://www.w3.org/2000/svg" class="w-3 h-3 text-muted" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
+              </svg>
+            </span>
+          </summary>
+          <p class="font-body text-sm text-muted leading-relaxed mt-4 max-w-2xl">
+            {faq.a}
+          </p>
+        </details>
+      ))}
+    </div>
+  </div>
+</section>
