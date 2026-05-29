@@ -21,3 +21,16 @@ test.describe('Hero Section', () => {
     expect(href).toContain('#layanan');
   });
 });
+
+test.describe('Founder Section', () => {
+  test('shows founder name heading', async ({ page }) => {
+    await page.goto('/');
+    await expect(page.getByRole('heading', { name: /Halo, saya Kholid Putra/i })).toBeVisible();
+  });
+
+  test('shows 8+ experience stat', async ({ page }) => {
+    await page.goto('/');
+    const section = page.locator('#founder');
+    await expect(section.getByText(/8\+/).first()).toBeVisible();
+  });
+});
