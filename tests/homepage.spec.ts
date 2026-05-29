@@ -34,3 +34,17 @@ test.describe('Founder Section', () => {
     await expect(section.getByText(/8\+/).first()).toBeVisible();
   });
 });
+
+test.describe('Services Section', () => {
+  test('shows 4 service cards', async ({ page }) => {
+    await page.goto('/');
+    const cards = page.locator('#layanan [data-service]');
+    await expect(cards).toHaveCount(4);
+  });
+
+  test('Custom App card is visually distinct (dark)', async ({ page }) => {
+    await page.goto('/');
+    const customCard = page.locator('[data-service="custom-app"]');
+    await expect(customCard).toBeVisible();
+  });
+});

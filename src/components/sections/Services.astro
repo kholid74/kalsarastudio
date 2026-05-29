@@ -1,0 +1,75 @@
+---
+import SectionLabel from '../ui/SectionLabel.astro';
+
+const services = [
+  {
+    id:      'company-profile',
+    name:    'Website Company Profile',
+    problem: 'Bisnis Anda kehilangan kredibilitas karena belum punya website profesional.',
+    solution:'Kami bangun website yang mencerminkan identitas bisnis Anda — bersih, cepat, dan mudah ditemukan di Google.',
+    price:   'Mulai Rp3.500.000',
+    dark:    false,
+  },
+  {
+    id:      'landing-page',
+    name:    'Landing Page',
+    problem: 'Iklan digital Anda menghabiskan banyak budget tapi konversinya rendah.',
+    solution:'Landing page yang berfokus pada satu tujuan: mengubah pengunjung menjadi pelanggan atau prospek.',
+    price:   'Mulai Rp3.500.000',
+    dark:    false,
+  },
+  {
+    id:      'ecommerce',
+    name:    'E-Commerce',
+    problem: 'Anda bergantung pada marketplace pihak ketiga dan kehilangan kontrol atas data pelanggan.',
+    solution:'Toko online mandiri yang mudah Anda kelola — dengan sistem manajemen produk, pesanan, dan pembayaran.',
+    price:   'Mulai Rp7.500.000',
+    dark:    false,
+  },
+  {
+    id:      'custom-app',
+    name:    'Custom Web Application',
+    problem: 'Proses bisnis Anda manual dan tidak efisien karena tidak ada sistem yang sesuai.',
+    solution:'Sistem digital yang dirancang khusus: dashboard, CRM, portal, booking, atau automasi sesuai kebutuhan bisnis Anda.',
+    price:   'Diskusi',
+    dark:    true,
+  },
+] as const;
+---
+
+<section class="bg-white py-20 md:py-28 px-6" id="layanan">
+  <div class="max-w-site mx-auto">
+    <div class="mb-12">
+      <SectionLabel class="mb-3">Layanan</SectionLabel>
+      <h2 class="font-heading font-extrabold text-3xl md:text-4xl text-ink">
+        Dari Website hingga Aplikasi Custom.
+      </h2>
+    </div>
+
+    <div class="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-0 border border-border rounded-xl overflow-hidden">
+      {services.map((s) => (
+        <div
+          data-service={s.id}
+          class={[
+            'flex flex-col p-7 border-b xl:border-b-0 xl:border-r border-border last:border-0',
+            'border-t-4',
+            s.dark ? 'bg-navy border-t-cyan text-white' : 'bg-white border-t-blue text-ink',
+          ].join(' ')}
+        >
+          <h3 class={`font-heading font-bold text-base mb-3 ${s.dark ? 'text-white' : 'text-ink'}`}>
+            {s.name}
+          </h3>
+          <p class={`font-body text-sm leading-relaxed mb-3 ${s.dark ? 'text-white/50' : 'text-muted'}`}>
+            {s.problem}
+          </p>
+          <p class={`font-body text-sm leading-relaxed mb-6 ${s.dark ? 'text-white/70' : 'text-ink/80'}`}>
+            {s.solution}
+          </p>
+          <p class={`mt-auto font-body font-semibold text-sm ${s.dark ? 'text-cyan' : 'text-blue'}`}>
+            {s.price}
+          </p>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
