@@ -64,3 +64,18 @@ test.describe('Process Section', () => {
     await expect(steps).toHaveCount(14);
   });
 });
+
+test.describe('Pricing Section', () => {
+  test('shows 3 pricing cards', async ({ page }) => {
+    await page.goto('/');
+    const cards = page.locator('#harga [data-plan]');
+    await expect(cards).toHaveCount(3);
+  });
+
+  test('highlighted plan CTA links to WhatsApp', async ({ page }) => {
+    await page.goto('/');
+    const featuredCta = page.locator('[data-plan="tumbuh"] a');
+    const href = await featuredCta.getAttribute('href');
+    expect(href).toContain('wa.me');
+  });
+});

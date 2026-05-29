@@ -1,0 +1,106 @@
+---
+import SectionLabel from '../ui/SectionLabel.astro';
+import { site } from '../../config/site';
+
+const plans = [
+  {
+    id:       'mulai',
+    name:     'Paket Mulai',
+    price:    'Rp3.500.000',
+    scope:    'Company Profile & Landing Page',
+    items:    ['Desain custom (bukan template)', 'Mobile-first & responsive', 'SEO dasar', 'Domain & hosting guidance', '1 bulan support'],
+    featured: false,
+    cta:      'Mulai Sekarang',
+  },
+  {
+    id:       'tumbuh',
+    name:     'Paket Tumbuh',
+    price:    'Rp7.500.000',
+    scope:    'E-Commerce & Website Multi-page',
+    items:    ['Semua dari Paket Mulai', 'Manajemen produk & pesanan', 'Integrasi payment gateway', 'Admin panel / CMS', '3 bulan support'],
+    featured: true,
+    cta:      'Pilih Paket Ini',
+  },
+  {
+    id:       'berkembang',
+    name:     'Paket Berkembang',
+    price:    'Rp15.000.000',
+    scope:    'Custom Web Application',
+    items:    ['Sistem custom sesuai proses bisnis', 'Dashboard / portal / CRM', 'Integrasi API & automasi', 'Konsultasi arsitektur sistem', 'Support & maintenance plan'],
+    featured: false,
+    cta:      'Diskusikan Kebutuhan',
+  },
+] as const;
+---
+
+<section class="bg-surface py-20 md:py-28 px-6" id="harga">
+  <div class="max-w-site mx-auto">
+    <div class="mb-12">
+      <SectionLabel class="mb-3">Paket Harga</SectionLabel>
+      <h2 class="font-heading font-extrabold text-3xl md:text-4xl text-ink">
+        Investasi yang Sesuai dengan Tahap Bisnis Anda.
+      </h2>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6 items-start">
+      {plans.map((p) => (
+        <div
+          data-plan={p.id}
+          class={[
+            'rounded-xl p-8 flex flex-col relative',
+            p.featured
+              ? 'bg-navy text-white border-2 border-blue'
+              : 'bg-white text-ink border border-border',
+          ].join(' ')}
+        >
+          {p.featured && (
+            <div class="absolute -top-3.5 left-1/2 -translate-x-1/2">
+              <span class="bg-blue text-white text-xs font-body font-semibold px-4 py-1 rounded-full whitespace-nowrap">
+                Paling Dipilih
+              </span>
+            </div>
+          )}
+
+          <div class="mb-6">
+            <p class={`font-body font-semibold text-xs tracking-widest uppercase mb-2 ${p.featured ? 'text-cyan' : 'text-muted'}`}>
+              {p.name}
+            </p>
+            <p class={`font-heading font-extrabold text-3xl mb-1 ${p.featured ? 'text-white' : 'text-ink'}`}>
+              {p.price}<span class={`text-base font-body font-normal ${p.featured ? 'text-white/50' : 'text-muted'}`}>+</span>
+            </p>
+            <p class={`font-body text-sm ${p.featured ? 'text-white/50' : 'text-muted'}`}>{p.scope}</p>
+          </div>
+
+          <ul class={`space-y-2.5 mb-8 flex-1 ${p.featured ? 'text-white/70' : 'text-muted'}`}>
+            {p.items.map((item) => (
+              <li class="flex items-start gap-2 font-body text-sm">
+                <svg xmlns="http://www.w3.org/2000/svg" class={`w-4 h-4 mt-0.5 flex-shrink-0 ${p.featured ? 'text-cyan' : 'text-blue'}`} fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5" />
+                </svg>
+                {item}
+              </li>
+            ))}
+          </ul>
+
+          <a
+            href={site.waUrl(`Halo Kalsara, saya tertarik dengan ${p.name}. Boleh saya konsultasi?`)}
+            target="_blank"
+            rel="noopener noreferrer"
+            class={[
+              'block text-center py-3 px-6 rounded-full font-body font-semibold text-sm transition-all',
+              p.featured
+                ? 'bg-blue text-white hover:bg-blue/90'
+                : 'border border-border text-ink hover:border-blue hover:text-blue',
+            ].join(' ')}
+          >
+            {p.cta}
+          </a>
+        </div>
+      ))}
+    </div>
+
+    <p class="mt-8 text-center font-body text-sm text-muted">
+      Semua harga dapat disesuaikan. Konsultasi gratis untuk kebutuhan spesifik.
+    </p>
+  </div>
+</section>
