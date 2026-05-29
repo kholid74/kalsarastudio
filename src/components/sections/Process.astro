@@ -1,0 +1,60 @@
+---
+import SectionLabel from '../ui/SectionLabel.astro';
+
+const steps = [
+  { n: '01', name: 'Discovery',    desc: 'Kami pelajari bisnis, target pasar, dan tujuan digital Anda.' },
+  { n: '02', name: 'Proposal',     desc: 'Anda menerima proposal tertulis: scope, timeline, dan harga yang jelas.' },
+  { n: '03', name: 'Design',       desc: 'Wireframe dan desain visual disiapkan untuk persetujuan Anda.' },
+  { n: '04', name: 'Development',  desc: 'Pengembangan dimulai dengan standar kode yang bersih dan terstruktur.' },
+  { n: '05', name: 'Review',       desc: 'Anda menguji dan memberikan feedback. Revisi dilakukan sesuai kesepakatan.' },
+  { n: '06', name: 'Launch',       desc: 'Website dipublish ke domain Anda dengan konfigurasi yang optimal.' },
+  { n: '07', name: 'Support',      desc: 'Kami tersedia untuk pertanyaan, perbaikan minor, dan pengembangan lanjutan.' },
+] as const;
+---
+
+<section class="bg-white py-20 md:py-28 px-6" id="proses">
+  <div class="max-w-site mx-auto">
+    <div class="mb-12">
+      <SectionLabel class="mb-3">Proses Kerja</SectionLabel>
+      <h2 class="font-heading font-extrabold text-3xl md:text-4xl text-ink">
+        Transparan dari Awal hingga Akhir.
+      </h2>
+    </div>
+
+    <!-- Desktop: horizontal timeline -->
+    <div class="hidden md:grid grid-cols-7 gap-0 relative">
+      <!-- Connector line -->
+      <div class="absolute top-5 left-[calc(100%/14)] right-[calc(100%/14)] h-px bg-border z-0"></div>
+
+      {steps.map((s) => (
+        <div data-step class="relative z-10 flex flex-col items-center text-center px-2">
+          <div class="w-10 h-10 rounded-full bg-white border-2 border-blue flex items-center justify-center mb-4 flex-shrink-0">
+            <span class="font-heading font-bold text-xs text-blue">{s.n}</span>
+          </div>
+          <p class="font-heading font-bold text-sm text-ink mb-1">{s.name}</p>
+          <p class="font-body text-xs text-muted leading-relaxed">{s.desc}</p>
+        </div>
+      ))}
+    </div>
+
+    <!-- Mobile: vertical timeline -->
+    <div class="md:hidden flex flex-col gap-0">
+      {steps.map((s, i) => (
+        <div data-step class="flex gap-5 relative">
+          <div class="flex flex-col items-center">
+            <div class="w-9 h-9 rounded-full bg-white border-2 border-blue flex items-center justify-center flex-shrink-0 z-10">
+              <span class="font-heading font-bold text-xs text-blue">{s.n}</span>
+            </div>
+            {i < steps.length - 1 && (
+              <div class="w-px flex-1 bg-border mt-1"></div>
+            )}
+          </div>
+          <div class="pb-8">
+            <p class="font-heading font-bold text-sm text-ink mb-1 pt-1.5">{s.name}</p>
+            <p class="font-body text-sm text-muted leading-relaxed">{s.desc}</p>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

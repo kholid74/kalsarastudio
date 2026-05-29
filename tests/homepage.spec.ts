@@ -56,3 +56,11 @@ test.describe('Why Kalsara Section', () => {
     await expect(points).toHaveCount(5);
   });
 });
+
+test.describe('Process Section', () => {
+  test('shows 7 process steps', async ({ page }) => {
+    await page.goto('/');
+    const steps = page.locator('#proses [data-step]');
+    await expect(steps).toHaveCount(14);
+  });
+});
