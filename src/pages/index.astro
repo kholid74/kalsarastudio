@@ -1,6 +1,14 @@
 ---
+import Base from '../layouts/Base.astro';
+import Nav from '../components/layout/Nav.astro';
+import Footer from '../components/layout/Footer.astro';
+import Hero from '../components/sections/Hero.astro';
 ---
-<html lang="id">
-  <head><meta charset="UTF-8" /><title>Kalsara</title></head>
-  <body><h1>Kalsara Digital Studio</h1></body>
-</html>
+
+<Base>
+  <Nav />
+  <main>
+    <Hero />
+  </main>
+  <Footer />
+</Base>
