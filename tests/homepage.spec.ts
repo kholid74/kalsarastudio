@@ -104,3 +104,26 @@ test.describe('Final CTA Section', () => {
     await expect(cta).toBeVisible();
   });
 });
+
+test.describe('Mobile Navigation', () => {
+  test('hamburger opens mobile menu', async ({ page }) => {
+    await page.setViewportSize({ width: 375, height: 812 });
+    await page.goto('/');
+
+    const menu   = page.locator('#mobile-menu');
+    const toggle = page.locator('#nav-toggle');
+
+    await expect(menu).toBeHidden();
+    await toggle.click();
+    await expect(menu).toBeVisible();
+  });
+
+  test('mobile menu closes when nav link is clicked', async ({ page }) => {
+    await page.setViewportSize({ width: 375, height: 812 });
+    await page.goto('/');
+
+    await page.locator('#nav-toggle').click();
+    await page.locator('#mobile-menu a').first().click();
+    await expect(page.locator('#mobile-menu')).toBeHidden();
+  });
+});
