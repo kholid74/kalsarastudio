@@ -1,0 +1,54 @@
+---
+import SectionLabel from '../ui/SectionLabel.astro';
+
+const points = [
+  {
+    title: 'Dibangun oleh Software Engineer',
+    desc:  'Bukan designer yang belajar coding, bukan freelancer yang mengandalkan template. Kode yang ditulis mengikuti standar engineering yang sesungguhnya.',
+    icon:  `<path stroke-linecap="round" stroke-linejoin="round" d="M17.25 6.75 22.5 12l-5.25 5.25m-10.5 0L1.5 12l5.25-5.25m7.5-3-4.5 16.5" />`,
+  },
+  {
+    title: 'Standar Kualitas Enterprise',
+    desc:  'Pengalaman membangun sistem untuk organisasi besar di Indonesia diterapkan untuk setiap proyek — sekecil apapun ukuran bisnis Anda.',
+    icon:  `<path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75 11.25 15 15 9.75M21 12c0 1.268-.63 2.39-1.593 3.068a3.745 3.745 0 0 1-1.043 3.296 3.745 3.745 0 0 1-3.296 1.043A3.745 3.745 0 0 1 12 21c-1.268 0-2.39-.63-3.068-1.593a3.746 3.746 0 0 1-3.296-1.043 3.745 3.745 0 0 1-1.043-3.296A3.745 3.745 0 0 1 3 12c0-1.268.63-2.39 1.593-3.068a3.745 3.745 0 0 1 1.043-3.296 3.746 3.746 0 0 1 3.296-1.043A3.746 3.746 0 0 1 12 3c1.268 0 2.39.63 3.068 1.593a3.746 3.746 0 0 1 3.296 1.043 3.746 3.746 0 0 1 1.043 3.296A3.745 3.745 0 0 1 21 12Z" />`,
+  },
+  {
+    title: 'Komunikasi Langsung dengan Developer',
+    desc:  'Tidak ada account manager perantara. Anda berbicara langsung dengan engineer yang membangun sistem Anda — lebih cepat, lebih jelas, lebih akuntabel.',
+    icon:  `<path stroke-linecap="round" stroke-linejoin="round" d="M8.625 9.75a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Zm0 0H8.25m4.125 0a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Zm0 0H12m4.125 0a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Zm0 0h-.375m-13.5 3.01c0 1.6 1.123 2.994 2.707 3.227 1.087.16 2.185.283 3.293.369V21l4.184-4.183a1.14 1.14 0 0 1 .778-.332 48.294 48.294 0 0 0 5.83-.498c1.585-.233 2.708-1.626 2.708-3.228V6.741c0-1.602-1.123-2.995-2.707-3.228A48.394 48.394 0 0 0 12 3c-2.392 0-4.744.175-7.043.513C3.373 3.746 2.25 5.14 2.25 6.741v6.018Z" />`,
+  },
+  {
+    title: 'Arsitektur Siap Berkembang',
+    desc:  'Website yang kami bangun hari ini dirancang agar bisa berkembang menjadi sistem yang lebih kompleks esok hari — tanpa perlu rebuild dari nol.',
+    icon:  `<path stroke-linecap="round" stroke-linejoin="round" d="M3.75 3v11.25A2.25 2.25 0 0 0 6 16.5h2.25M3.75 3h-1.5m1.5 0h16.5m0 0h1.5m-1.5 0v11.25A2.25 2.25 0 0 1 18 16.5h-2.25m-7.5 0h7.5m-7.5 0-1 3m8.5-3 1 3m0 0 .5 1.5m-.5-1.5h-9.5m0 0-.5 1.5M9 11.25v1.5M12 9v3.75m3-6v6" />`,
+  },
+  {
+    title: 'Partner Teknologi Jangka Panjang',
+    desc:  'Hubungan kerja tidak berhenti saat website diluncurkan. Kalsara hadir untuk mendukung pertumbuhan bisnis Anda dalam jangka panjang.',
+    icon:  `<path stroke-linecap="round" stroke-linejoin="round" d="M15.75 6a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0ZM4.501 20.118a7.5 7.5 0 0 1 14.998 0A17.933 17.933 0 0 1 12 21.75c-2.676 0-5.216-.584-7.499-1.632Z" />`,
+  },
+] as const;
+---
+
+<section class="bg-surface py-20 md:py-28 px-6" id="mengapa">
+  <div class="max-w-site mx-auto">
+    <div class="mb-12">
+      <SectionLabel class="mb-3">Mengapa Kalsara</SectionLabel>
+      <h2 class="font-heading font-extrabold text-3xl md:text-4xl text-ink max-w-lg">
+        Engineering-First. Bukan Agency Biasa.
+      </h2>
+    </div>
+
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+      {points.map((p) => (
+        <div data-point class="bg-white border border-border rounded-xl p-7">
+          <div class="w-10 h-10 rounded-lg bg-blue/10 flex items-center justify-center mb-5">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="#1E73FF" class="w-5 h-5" set:html={p.icon} />
+          </div>
+          <h3 class="font-heading font-bold text-base text-ink mb-2">{p.title}</h3>
+          <p class="font-body text-sm text-muted leading-relaxed">{p.desc}</p>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

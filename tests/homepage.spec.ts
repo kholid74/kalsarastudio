@@ -48,3 +48,11 @@ test.describe('Services Section', () => {
     await expect(customCard).toBeVisible();
   });
 });
+
+test.describe('Why Kalsara Section', () => {
+  test('shows 5 differentiator points', async ({ page }) => {
+    await page.goto('/');
+    const points = page.locator('#mengapa [data-point]');
+    await expect(points).toHaveCount(5);
+  });
+});
