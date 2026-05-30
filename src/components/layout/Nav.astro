@@ -3,7 +3,7 @@ import { site } from '../../config/site';
 import Button from '../ui/Button.astro';
 ---
 
-<header class="fixed top-0 left-0 right-0 z-50 transition-all duration-200" id="navbar">
+<header class="fixed top-0 left-0 right-0 z-50 transition-all duration-200 bg-navy/95 backdrop-blur-sm" id="navbar">
   <nav class="max-w-site mx-auto px-6 flex items-center justify-between h-16">
     <!-- Logo -->
     <a href="/" class="flex-shrink-0 transition-opacity hover:opacity-80">
@@ -78,12 +78,12 @@ import Button from '../ui/Button.astro';
   const toggle   = document.getElementById('nav-toggle')!;
   const menu     = document.getElementById('mobile-menu')!;
 
-  // Scroll: add bg to navbar
+  // Scroll: add border-b when scrolled
   window.addEventListener('scroll', () => {
     if (window.scrollY > 10) {
-      navbar.classList.add('bg-navy/95', 'backdrop-blur-sm', 'border-b', 'border-white/10');
+      navbar.classList.add('border-b', 'border-white/10');
     } else {
-      navbar.classList.remove('bg-navy/95', 'backdrop-blur-sm', 'border-b', 'border-white/10');
+      navbar.classList.remove('border-b', 'border-white/10');
     }
   }, { passive: true });
 
