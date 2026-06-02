@@ -6,23 +6,35 @@ import { site } from '../../config/site';
 const projects = [
   {
     title: 'Website Company Profile',
-    desc: 'Website profesional untuk meningkatkan kredibilitas bisnis dan mempermudah pelanggan mendapatkan informasi.',
+    context: 'Bisnis jasa konsultan — Tangerang',
+    desc: 'Membangun kehadiran digital pertama untuk bisnis yang selama ini hanya mengandalkan referral. Pengunjung kini bisa melihat profil, layanan, dan menghubungi langsung.',
     tag: 'Concept Project',
+    palette: ['bg-blue/20', 'bg-blue/10', 'bg-white/5'],
+    dark: false,
   },
   {
     title: 'Landing Page Produk',
-    desc: 'Fokus pada promosi produk dan peningkatan konversi — satu halaman, satu tujuan.',
+    context: 'Produk skincare lokal — Jakarta',
+    desc: 'Halaman fokus satu tujuan: mengubah pengunjung iklan menjadi pembeli. Desain diarahkan pada konversi dengan struktur copywriting yang terukur.',
     tag: 'Concept Project',
+    palette: ['bg-cyan/20', 'bg-cyan/10', 'bg-white/5'],
+    dark: false,
   },
   {
     title: 'Dashboard Internal',
-    desc: 'Membantu pengelolaan data dan proses operasional bisnis dalam satu tampilan yang mudah digunakan.',
+    context: 'Tim operasional — Multi-cabang',
+    desc: 'Sistem pengelolaan data operasional harian yang sebelumnya dilakukan manual lewat spreadsheet. Semua data terpusat dan bisa diakses dari mana saja.',
     tag: 'Sample Project',
+    palette: ['bg-navy/60', 'bg-navy/40', 'bg-navy/20'],
+    dark: true,
   },
   {
     title: 'Sistem Booking',
-    desc: 'Platform reservasi dan pengelolaan jadwal berbasis web untuk bisnis jasa dan layanan.',
+    context: 'Klinik kecantikan — Serpong',
+    desc: 'Platform reservasi berbasis web yang menggantikan proses booking manual via WhatsApp. Pelanggan booking sendiri, jadwal terkelola otomatis.',
     tag: 'Sample Project',
+    palette: ['bg-ink/60', 'bg-ink/30', 'bg-ink/10'],
+    dark: true,
   },
 ] as const;
 ---
@@ -32,23 +44,47 @@ const projects = [
     <div class="mb-12">
       <SectionLabel class="mb-3">Karya Pilihan</SectionLabel>
       <h2 class="font-heading font-extrabold text-3xl md:text-4xl text-ink">
-        Contoh Website & Solusi Digital
+        Yang Sudah Kami Bangun
       </h2>
       <p class="font-body text-base text-muted mt-4 max-w-xl leading-relaxed">
-        Berbagai jenis website dan solusi digital yang kami kerjakan untuk membantu bisnis berkembang.
+        Contoh nyata website dan solusi digital — dari kebutuhan sederhana hingga sistem yang lebih kompleks.
       </p>
     </div>
 
     <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 mb-12">
       {projects.map((p) => (
-        <div class="bg-white border border-border rounded-xl p-8 flex flex-col">
-          <div class="flex items-start justify-between gap-4 mb-4">
-            <h3 class="font-heading font-bold text-base text-ink">{p.title}</h3>
-            <span class="shrink-0 font-body text-xs font-semibold text-muted border border-border rounded-full px-3 py-1 whitespace-nowrap">
-              {p.tag}
-            </span>
+        <div class="bg-white border border-border rounded-xl overflow-hidden flex flex-col">
+          <!-- Browser mockup -->
+          <div class={`p-4 ${p.dark ? 'bg-navy' : 'bg-surface'} border-b border-border`}>
+            <!-- Chrome bar -->
+            <div class="flex items-center gap-1.5 mb-3">
+              <div class="w-2.5 h-2.5 rounded-full bg-white/10"></div>
+              <div class="w-2.5 h-2.5 rounded-full bg-white/10"></div>
+              <div class="w-2.5 h-2.5 rounded-full bg-white/10"></div>
+              <div class={`ml-2 flex-1 h-4 rounded ${p.dark ? 'bg-white/5' : 'bg-black/5'} max-w-32`}></div>
+            </div>
+            <!-- Content skeleton -->
+            <div class="space-y-2">
+              <div class={`h-5 rounded ${p.palette[0]} w-3/4`}></div>
+              <div class={`h-3 rounded ${p.palette[1]} w-full`}></div>
+              <div class={`h-3 rounded ${p.palette[1]} w-5/6`}></div>
+              <div class="flex gap-2 pt-1">
+                <div class={`h-6 rounded-full ${p.palette[0]} w-20`}></div>
+                <div class={`h-6 rounded-full ${p.palette[2]} w-16`}></div>
+              </div>
+            </div>
           </div>
-          <p class="font-body text-sm text-muted leading-relaxed">{p.desc}</p>
+          <!-- Card body -->
+          <div class="p-6 flex flex-col flex-1">
+            <div class="flex items-start justify-between gap-3 mb-2">
+              <h3 class="font-heading font-bold text-base text-ink">{p.title}</h3>
+              <span class="shrink-0 font-body text-xs font-medium text-muted border border-border rounded-full px-2.5 py-0.5 whitespace-nowrap">
+                {p.tag}
+              </span>
+            </div>
+            <p class="font-body text-xs text-muted/70 mb-3 uppercase tracking-wide">{p.context}</p>
+            <p class="font-body text-sm text-muted leading-relaxed">{p.desc}</p>
+          </div>
         </div>
       ))}
     </div>
@@ -58,7 +94,7 @@ const projects = [
         Diskusikan Kebutuhan Anda
       </Button>
       <p class="font-body text-sm text-muted">
-        Portofolio nyata sedang dikembangkan seiring pertumbuhan klien.
+        Portofolio klien nyata sedang dikembangkan.
       </p>
     </div>
   </div>

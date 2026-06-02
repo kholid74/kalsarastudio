@@ -6,7 +6,7 @@ const plans = [
   {
     id:       'foundation',
     name:     'Foundation',
-    price:    'Rp3.500.000',
+    price:    'Mulai dari Rp3.500.000',
     scope:    'Company Profile & Landing Page',
     items:    ['Desain custom (bukan template)', 'Mobile-first & responsive', 'SEO dasar', 'Domain & hosting guidance', '1 bulan support'],
     featured: false,
@@ -15,7 +15,7 @@ const plans = [
   {
     id:       'growth',
     name:     'Growth',
-    price:    'Rp7.500.000',
+    price:    'Mulai dari Rp7.500.000',
     scope:    'E-Commerce & Website Multi-page',
     items:    ['Semua dari Foundation', 'Manajemen produk & pesanan', 'Integrasi payment gateway', 'Admin panel / CMS', '3 bulan support'],
     featured: true,
@@ -24,7 +24,7 @@ const plans = [
   {
     id:       'custom',
     name:     'Custom Solution',
-    price:    'Rp15.000.000',
+    price:    'Mulai dari Rp15.000.000',
     scope:    'Custom Web Application',
     items:    ['Sistem custom sesuai proses bisnis', 'Dashboard / portal / CRM', 'Integrasi API & automasi', 'Konsultasi kebutuhan sistem', 'Support & maintenance plan'],
     featured: false,
@@ -65,8 +65,8 @@ const plans = [
             <p class={`font-body font-semibold text-xs tracking-widest uppercase mb-2 ${p.featured ? 'text-cyan' : 'text-muted'}`}>
               {p.name}
             </p>
-            <p class={`font-heading font-extrabold text-3xl mb-1 ${p.featured ? 'text-white' : 'text-ink'}`}>
-              {p.price}<span class={`text-base font-body font-normal ${p.featured ? 'text-white/50' : 'text-muted'}`}>+</span>
+            <p class={`font-heading font-extrabold text-xl md:text-2xl mb-1 ${p.featured ? 'text-white' : 'text-ink'}`}>
+              {p.price}
             </p>
             <p class={`font-body text-sm ${p.featured ? 'text-white/50' : 'text-muted'}`}>{p.scope}</p>
           </div>
