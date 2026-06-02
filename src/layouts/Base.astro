@@ -80,5 +80,13 @@ const jsonLd = {
   </head>
   <body>
     <slot />
+    <script>
+      import { trackWhatsAppClick } from '../lib/analytics';
+      document.addEventListener('click', (e) => {
+        const el = (e.target as Element).closest('[data-wa-location]') as HTMLElement | null;
+        if (!el) return;
+        trackWhatsAppClick(el.dataset.waLocation ?? 'unknown');
+      });
+    </script>
   </body>
 </html>

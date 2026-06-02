@@ -1,5 +1,6 @@
 ---
 import SectionLabel from '../ui/SectionLabel.astro';
+import WhatsAppButton from '../WhatsAppButton.astro';
 import { site } from '../../config/site';
 
 const plans = [
@@ -82,10 +83,9 @@ const plans = [
             ))}
           </ul>
 
-          <a
+          <WhatsAppButton
             href={site.waUrl(`Halo Kalsara, saya tertarik dengan ${p.name}. Boleh saya konsultasi?`)}
-            target="_blank"
-            rel="noopener noreferrer"
+            location={`pricing_${p.id}`}
             class={[
               'block text-center py-3 px-6 rounded-full font-body font-semibold text-sm transition-all',
               p.featured
@@ -94,7 +94,7 @@ const plans = [
             ].join(' ')}
           >
             {p.cta}
-          </a>
+          </WhatsAppButton>
         </div>
       ))}
     </div>

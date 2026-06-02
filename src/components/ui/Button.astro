@@ -5,6 +5,7 @@ interface Props {
   class?: string;
   target?: string;
   rel?: string;
+  'data-wa-location'?: string;
 }
 
 const {
@@ -13,6 +14,7 @@ const {
   class: className = '',
   target,
   rel,
+  'data-wa-location': waLocation,
 } = Astro.props;
 
 const base    = 'inline-flex items-center justify-center gap-2 px-6 py-3 rounded-full font-body font-semibold text-sm transition-all duration-150 focus-visible:outline-2 focus-visible:outline-offset-2';
@@ -22,6 +24,6 @@ const secondary = 'border border-white/20 text-white/50 hover:border-white/40 ho
 const classes = [base, variant === 'primary' ? primary : secondary, className].join(' ');
 ---
 
-<a href={href} class={classes} target={target} rel={rel}>
+<a href={href} class={classes} target={target} rel={rel} data-wa-location={waLocation}>
   <slot />
 </a>

@@ -1,6 +1,7 @@
 ---
 import { Image } from 'astro:assets';
 import SectionLabel from '../ui/SectionLabel.astro';
+import WhatsAppButton from '../WhatsAppButton.astro';
 import { site } from '../../config/site';
 import imgGaruda from '../../assets/portfolio/project_garuda.png';
 import imgBerkah from '../../assets/portfolio/project_berkah_raya.png';
@@ -150,14 +151,13 @@ const categories = ['Semua', 'Company Profile', 'Landing Page', 'E-Commerce'] as
       <p class="font-body text-sm text-muted">Belum ada karya di kategori ini. Sedang dikerjakan.</p>
     </div>
 
-    <a
+    <WhatsAppButton
       href={site.waUrl()}
-      target="_blank"
-      rel="noopener noreferrer"
+      location="karya_cta"
       class="inline-flex items-center gap-2 bg-ink text-white px-6 py-3 rounded-full font-body font-semibold text-sm hover:bg-ink/90 transition-colors"
     >
       Diskusikan Kebutuhan Anda
-    </a>
+    </WhatsAppButton>
 
   </div>
 </section>

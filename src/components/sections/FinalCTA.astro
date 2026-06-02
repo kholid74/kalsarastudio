@@ -1,5 +1,6 @@
 ---
 import { site } from '../../config/site';
+import WhatsAppButton from '../WhatsAppButton.astro';
 ---
 
 <section class="bg-navy text-white py-24 md:py-32 px-6" id="cta">
@@ -10,10 +11,9 @@ import { site } from '../../config/site';
     <p class="font-body text-lg text-white/60 mb-10 max-w-lg mx-auto">
       Tidak perlu tahu istilah teknisnya. Ceritakan kebutuhan bisnis Anda, dan kami akan bantu mewujudkannya menjadi solusi yang tepat.
     </p>
-    <a
+    <WhatsAppButton
       href={site.waUrl()}
-      target="_blank"
-      rel="noopener noreferrer"
+      location="final_cta"
       class="inline-flex items-center gap-3 bg-blue text-white px-8 py-4 rounded-full font-body font-semibold text-base hover:bg-blue/90 transition-all"
     >
       <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" viewBox="0 0 24 24" fill="currentColor">
@@ -21,7 +21,7 @@ import { site } from '../../config/site';
         <path d="M12 0C5.373 0 0 5.373 0 12c0 2.123.554 4.118 1.528 5.849L.057 23.5l5.818-1.528A11.95 11.95 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.88 0-3.644-.49-5.17-1.348l-.371-.218-3.85 1.011 1.03-3.763-.242-.386A9.967 9.967 0 0 1 2 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/>
       </svg>
       Konsultasi Gratis via WhatsApp
-    </a>
+    </WhatsAppButton>
 
     <p class="mt-6 font-body text-sm text-white/30">
       Gratis. Tanpa komitmen. Langsung dengan kami.

@@ -1,0 +1,27 @@
+---
+interface Props {
+  href: string;
+  location: string;
+  class?: string;
+  target?: string;
+  rel?: string;
+}
+
+const {
+  href,
+  location,
+  class: className = '',
+  target = '_blank',
+  rel = 'noopener noreferrer',
+} = Astro.props;
+---
+
+<a
+  href={href}
+  data-wa-location={location}
+  class={className}
+  target={target}
+  rel={rel}
+>
+  <slot />
+</a>
