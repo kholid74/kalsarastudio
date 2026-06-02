@@ -1,0 +1,60 @@
+---
+import SectionLabel from '../ui/SectionLabel.astro';
+import Button from '../ui/Button.astro';
+import { site } from '../../config/site';
+
+const blocks = [
+  {
+    number: '8+',
+    unit: 'Tahun',
+    title: 'Software Engineering',
+    desc: 'Pengalaman membangun dan mengembangkan berbagai solusi digital untuk kebutuhan bisnis dan operasional.',
+  },
+  {
+    number: '',
+    unit: '',
+    title: 'Pengalaman Sistem Enterprise',
+    desc: 'Terlibat dalam pengembangan sistem dengan kebutuhan operasional kompleks, standar kualitas tinggi, dan fokus pada stabilitas jangka panjang.',
+  },
+  {
+    number: '',
+    unit: '',
+    title: 'Website & Solusi Digital',
+    desc: 'Pengembangan website company profile, landing page, dashboard internal, integrasi API, dan aplikasi web custom.',
+  },
+] as const;
+---
+
+<section class="bg-surface py-20 md:py-28 px-6" id="pengalaman">
+  <div class="max-w-site mx-auto">
+    <div class="mb-12">
+      <SectionLabel class="mb-3">Rekam Jejak</SectionLabel>
+      <h2 class="font-heading font-extrabold text-3xl md:text-4xl text-ink max-w-2xl">
+        Pengalaman & Karya Pilihan
+      </h2>
+      <p class="font-body text-base text-muted mt-4 max-w-xl leading-relaxed">
+        Pengalaman profesional yang membentuk cara kami membangun website dan solusi digital hari ini.
+      </p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
+      {blocks.map((b) => (
+        <div class="bg-white border border-border rounded-xl p-8">
+          {b.number && (
+            <p class="font-heading font-extrabold text-4xl text-blue mb-1">
+              {b.number}<span class="text-2xl text-blue/60 ml-1">{b.unit}</span>
+            </p>
+          )}
+          <h3 class="font-heading font-bold text-base text-ink mb-3">{b.title}</h3>
+          <p class="font-body text-sm text-muted leading-relaxed">{b.desc}</p>
+        </div>
+      ))}
+    </div>
+
+    <div>
+      <Button href={site.waUrl()} target="_blank" rel="noopener noreferrer">
+        Diskusikan Kebutuhan Anda
+      </Button>
+    </div>
+  </div>
+</section>

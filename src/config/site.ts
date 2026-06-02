@@ -3,7 +3,7 @@ export const site = {
   tagline:     'Software Engineering Studio · Indonesia',
   url:         'https://kalsara.studio',
   whatsapp:    '6281234567890',
-  email:       'hello@kalsara.studio',
+  email:       'hello@kalsara.id',
   description: 'Website dan sistem digital yang dibangun untuk mendukung pertumbuhan bisnis. Dari company profile hingga custom web application.',
   ogImage:     '/og-image.png',
 
