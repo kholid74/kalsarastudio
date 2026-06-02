@@ -1,6 +1,9 @@
 ---
+import { Image } from 'astro:assets';
 import SectionLabel from '../ui/SectionLabel.astro';
 import { site } from '../../config/site';
+import imgGaruda from '../../assets/portfolio/project_garuda.png';
+import imgBerkah from '../../assets/portfolio/project_berkah_raya.png';
 
 const projects = [
   {
@@ -9,9 +12,8 @@ const projects = [
     desc: 'Website company profile untuk bisnis tour & travel yang berfokus pada paket wisata Labuan Bajo — memudahkan calon pelanggan menemukan informasi dan melakukan reservasi via WhatsApp.',
     tags: ['Travel & Tourism', 'WhatsApp Booking', 'SEO-Friendly'],
     url: 'https://garudapariwisata.com',
-    image: '/portfolio/garuda-pariwisata.svg',
+    image: imgGaruda,
     imageAlt: 'Screenshot website Garuda Pariwisata',
-    live: true,
   },
   {
     title: 'Berkah Raya Farm',
@@ -19,11 +21,10 @@ const projects = [
     desc: 'Landing page untuk produsen telur asin yang memperkenalkan produk, membangun kepercayaan calon pembeli, dan mempermudah proses pemesanan secara online.',
     tags: ['Food Business', 'UMKM', 'WhatsApp Inquiry'],
     url: 'https://berkahrayafarm.com',
-    image: '/portfolio/berkah-raya-farm.svg',
+    image: imgBerkah,
     imageAlt: 'Screenshot website Berkah Raya Farm',
-    live: true,
   },
-] as const;
+];
 
 const categories = ['Semua', 'Company Profile', 'Landing Page', 'E-Commerce'] as const;
 ---
@@ -79,13 +80,15 @@ const categories = ['Semua', 'Company Profile', 'Landing Page', 'E-Commerce'] as
               </div>
             </div>
             <div class="aspect-[16/10] bg-gray-100 overflow-hidden">
-              <img
+              <Image
                 src={p.image}
                 alt={p.imageAlt}
+                width={480}
+                height={300}
+                format="webp"
+                quality={82}
                 class="w-full h-full object-cover object-top group-hover:scale-[1.02] transition-transform duration-300"
                 loading="lazy"
-                width="480"
-                height="300"
               />
             </div>
           </div>
