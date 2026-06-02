@@ -3,58 +3,63 @@ import SectionLabel from '../ui/SectionLabel.astro';
 import Button from '../ui/Button.astro';
 import { site } from '../../config/site';
 
-const blocks = [
+const projects = [
   {
-    number: '8+',
-    unit: 'Tahun',
-    title: 'Software Engineering',
-    desc: 'Pengalaman membangun dan mengembangkan berbagai solusi digital untuk kebutuhan bisnis dan operasional.',
+    title: 'Website Company Profile',
+    desc: 'Website profesional untuk meningkatkan kredibilitas bisnis dan mempermudah pelanggan mendapatkan informasi.',
+    tag: 'Concept Project',
   },
   {
-    number: '',
-    unit: '',
-    title: 'Pengalaman Sistem Enterprise',
-    desc: 'Terlibat dalam pengembangan sistem dengan kebutuhan operasional kompleks, standar kualitas tinggi, dan fokus pada stabilitas jangka panjang.',
+    title: 'Landing Page Produk',
+    desc: 'Fokus pada promosi produk dan peningkatan konversi — satu halaman, satu tujuan.',
+    tag: 'Concept Project',
   },
   {
-    number: '',
-    unit: '',
-    title: 'Website & Solusi Digital',
-    desc: 'Pengembangan website company profile, landing page, dashboard internal, integrasi API, dan aplikasi web custom.',
+    title: 'Dashboard Internal',
+    desc: 'Membantu pengelolaan data dan proses operasional bisnis dalam satu tampilan yang mudah digunakan.',
+    tag: 'Sample Project',
+  },
+  {
+    title: 'Sistem Booking',
+    desc: 'Platform reservasi dan pengelolaan jadwal berbasis web untuk bisnis jasa dan layanan.',
+    tag: 'Sample Project',
   },
 ] as const;
 ---
 
-<section class="bg-surface py-20 md:py-28 px-6" id="pengalaman">
+<section class="bg-surface py-20 md:py-28 px-6" id="karya">
   <div class="max-w-site mx-auto">
     <div class="mb-12">
-      <SectionLabel class="mb-3">Rekam Jejak</SectionLabel>
-      <h2 class="font-heading font-extrabold text-3xl md:text-4xl text-ink max-w-2xl">
-        Pengalaman & Karya Pilihan
+      <SectionLabel class="mb-3">Karya Pilihan</SectionLabel>
+      <h2 class="font-heading font-extrabold text-3xl md:text-4xl text-ink">
+        Contoh Website & Solusi Digital
       </h2>
       <p class="font-body text-base text-muted mt-4 max-w-xl leading-relaxed">
-        Pengalaman profesional yang membentuk cara kami membangun website dan solusi digital hari ini.
+        Berbagai jenis website dan solusi digital yang kami kerjakan untuk membantu bisnis berkembang.
       </p>
     </div>
 
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
-      {blocks.map((b) => (
-        <div class="bg-white border border-border rounded-xl p-8">
-          {b.number && (
-            <p class="font-heading font-extrabold text-4xl text-blue mb-1">
-              {b.number}<span class="text-2xl text-blue/60 ml-1">{b.unit}</span>
-            </p>
-          )}
-          <h3 class="font-heading font-bold text-base text-ink mb-3">{b.title}</h3>
-          <p class="font-body text-sm text-muted leading-relaxed">{b.desc}</p>
+    <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 mb-12">
+      {projects.map((p) => (
+        <div class="bg-white border border-border rounded-xl p-8 flex flex-col">
+          <div class="flex items-start justify-between gap-4 mb-4">
+            <h3 class="font-heading font-bold text-base text-ink">{p.title}</h3>
+            <span class="shrink-0 font-body text-xs font-semibold text-muted border border-border rounded-full px-3 py-1 whitespace-nowrap">
+              {p.tag}
+            </span>
+          </div>
+          <p class="font-body text-sm text-muted leading-relaxed">{p.desc}</p>
         </div>
       ))}
     </div>
 
-    <div>
+    <div class="flex flex-col sm:flex-row items-start sm:items-center gap-4">
       <Button href={site.waUrl()} target="_blank" rel="noopener noreferrer">
         Diskusikan Kebutuhan Anda
       </Button>
+      <p class="font-body text-sm text-muted">
+        Portofolio nyata sedang dikembangkan seiring pertumbuhan klien.
+      </p>
     </div>
   </div>
 </section>
