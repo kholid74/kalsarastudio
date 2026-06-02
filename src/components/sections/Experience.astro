@@ -1,36 +1,37 @@
 ---
 import SectionLabel from '../ui/SectionLabel.astro';
-import Button from '../ui/Button.astro';
 import { site } from '../../config/site';
 
 const projects = [
   {
     title: 'Garuda Pariwisata',
-    category: 'Company Profile & Lead Generation Website',
-    desc: 'Website company profile untuk bisnis tour & travel yang berfokus pada paket wisata Labuan Bajo. Dirancang untuk memudahkan calon pelanggan menemukan informasi paket perjalanan, melihat galeri destinasi, serta melakukan konsultasi dan reservasi langsung melalui WhatsApp.',
-    tags: ['Company Profile', 'Travel & Tourism', 'WhatsApp Booking', 'SEO-Friendly', 'Mobile Responsive'],
+    category: 'Company Profile',
+    desc: 'Website company profile untuk bisnis tour & travel yang berfokus pada paket wisata Labuan Bajo — memudahkan calon pelanggan menemukan informasi dan melakukan reservasi via WhatsApp.',
+    tags: ['Travel & Tourism', 'WhatsApp Booking', 'SEO-Friendly'],
     url: 'https://garudapariwisata.com',
-    cta: 'Lihat Website',
     image: '/portfolio/garuda-pariwisata.svg',
     imageAlt: 'Screenshot website Garuda Pariwisata',
+    live: true,
   },
   {
     title: 'Berkah Raya Farm',
-    category: 'Product Landing Page & Business Website',
-    desc: 'Landing page untuk produsen dan supplier telur asin yang bertujuan memperkenalkan produk, membangun kepercayaan calon pembeli, dan mempermudah proses pemesanan. Website menonjolkan kualitas produk, proses produksi, serta informasi bisnis secara profesional.',
-    tags: ['Product Landing Page', 'Food Business', 'UMKM', 'WhatsApp Inquiry', 'Brand Trust Building'],
-    url: 'https://berkah-raya-farm.vercel.app',
-    cta: 'Lihat Website',
+    category: 'Landing Page',
+    desc: 'Landing page untuk produsen telur asin yang memperkenalkan produk, membangun kepercayaan calon pembeli, dan mempermudah proses pemesanan secara online.',
+    tags: ['Food Business', 'UMKM', 'WhatsApp Inquiry'],
+    url: 'https://berkahrayafarm.com',
     image: '/portfolio/berkah-raya-farm.svg',
     imageAlt: 'Screenshot website Berkah Raya Farm',
+    live: true,
   },
 ] as const;
+
+const categories = ['Semua', 'Company Profile', 'Landing Page', 'E-Commerce'] as const;
 ---
 
 <section class="bg-surface py-20 md:py-28 px-6" id="karya">
   <div class="max-w-site mx-auto">
 
-    <div class="mb-14">
+    <div class="mb-10">
       <SectionLabel class="mb-3">Karya Pilihan</SectionLabel>
       <h2 class="font-heading font-extrabold text-3xl md:text-4xl text-ink">
         Yang Sudah Kami Bangun
@@ -40,85 +41,154 @@ const projects = [
       </p>
     </div>
 
-    <!-- Alternating showcase -->
-    <div class="space-y-16 md:space-y-24">
-      {projects.map((p, i) => (
-        <div class={`grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-14 items-center ${i % 2 === 1 ? 'md:[direction:rtl]' : ''}`}>
+    <!-- Category filter tabs -->
+    <div class="flex flex-wrap gap-2 mb-10" role="tablist" aria-label="Filter kategori portfolio">
+      {categories.map((cat) => (
+        <button
+          data-filter={cat}
+          role="tab"
+          aria-selected={cat === 'Semua' ? 'true' : 'false'}
+          class:list={[
+            'portfolio-filter font-body text-sm font-medium px-4 py-2 rounded-full border transition-all',
+            cat === 'Semua'
+              ? 'bg-ink text-white border-ink'
+              : 'bg-white text-muted border-border hover:border-ink/30 hover:text-ink',
+          ]}
+        >
+          {cat}
+        </button>
+      ))}
+    </div>
 
-          <!-- Screenshot / mockup -->
-          <div class={`${i % 2 === 1 ? 'md:[direction:ltr]' : ''}`}>
-            <div class="rounded-2xl overflow-hidden border border-border shadow-lg bg-white">
-              <!-- Browser chrome -->
-              <div class="bg-gray-50 border-b border-border px-4 py-3 flex items-center gap-2">
-                <div class="flex gap-1.5">
-                  <div class="w-3 h-3 rounded-full bg-red-300"></div>
-                  <div class="w-3 h-3 rounded-full bg-yellow-300"></div>
-                  <div class="w-3 h-3 rounded-full bg-green-300"></div>
-                </div>
-                <div class="flex-1 bg-white border border-border rounded-md px-3 py-1 ml-2">
-                  <p class="font-body text-xs text-muted truncate">{p.url.replace('https://', '')}</p>
-                </div>
+    <!-- Portfolio grid -->
+    <div id="portfolio-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-10">
+
+      {projects.map((p) => (
+        <div
+          class="portfolio-card bg-white border border-border rounded-xl overflow-hidden flex flex-col group hover:shadow-md transition-shadow"
+          data-category={p.category}
+        >
+          <!-- Browser mockup screenshot -->
+          <div class="border-b border-border">
+            <div class="bg-gray-50 px-3 py-2.5 flex items-center gap-1.5">
+              <div class="w-2.5 h-2.5 rounded-full bg-red-300"></div>
+              <div class="w-2.5 h-2.5 rounded-full bg-yellow-300"></div>
+              <div class="w-2.5 h-2.5 rounded-full bg-green-300"></div>
+              <div class="ml-2 flex-1 bg-white border border-border rounded px-2 py-0.5">
+                <p class="font-body text-xs text-muted truncate">{p.url.replace('https://', '')}</p>
               </div>
-              <!-- Screenshot area -->
-              <div class="aspect-[16/10] bg-gray-100 overflow-hidden">
-                <img
-                  src={p.image}
-                  alt={p.imageAlt}
-                  class="w-full h-full object-cover object-top"
-                  loading="lazy"
-                  width="800"
-                  height="500"
-                />
-              </div>
+            </div>
+            <div class="aspect-[16/10] bg-gray-100 overflow-hidden">
+              <img
+                src={p.image}
+                alt={p.imageAlt}
+                class="w-full h-full object-cover object-top group-hover:scale-[1.02] transition-transform duration-300"
+                loading="lazy"
+                width="480"
+                height="300"
+              />
             </div>
           </div>
 
-          <!-- Content -->
-          <div class={`${i % 2 === 1 ? 'md:[direction:ltr]' : ''}`}>
-            <p class="font-body text-xs font-semibold text-muted uppercase tracking-widest mb-3">{p.category}</p>
-            <h3 class="font-heading font-extrabold text-2xl md:text-3xl text-ink mb-4">{p.title}</h3>
-            <p class="font-body text-base text-muted leading-relaxed mb-6">{p.desc}</p>
-
-            <!-- Tags -->
-            <div class="flex flex-wrap gap-2 mb-8">
+          <!-- Card content -->
+          <div class="p-5 flex flex-col flex-1">
+            <div class="flex items-start justify-between gap-2 mb-2">
+              <h3 class="font-heading font-bold text-base text-ink">{p.title}</h3>
+              <span class="shrink-0 font-body text-xs font-medium text-blue bg-blue/8 border border-blue/15 rounded-full px-2.5 py-0.5 whitespace-nowrap">
+                {p.category}
+              </span>
+            </div>
+            <p class="font-body text-sm text-muted leading-relaxed mb-4 flex-1">{p.desc}</p>
+            <div class="flex flex-wrap gap-1.5 mb-4">
               {p.tags.map((tag) => (
-                <span class="font-body text-xs font-medium text-ink/60 bg-white border border-border rounded-full px-3 py-1">
+                <span class="font-body text-xs text-muted/70 border border-border rounded-full px-2.5 py-0.5">
                   {tag}
                 </span>
               ))}
             </div>
-
             <a
               href={p.url}
               target="_blank"
               rel="noopener noreferrer"
-              class="inline-flex items-center gap-2 font-body font-semibold text-sm text-blue hover:text-blue/80 transition-colors"
+              class="inline-flex items-center gap-1.5 font-body font-semibold text-sm text-blue hover:text-blue/80 transition-colors"
             >
-              {p.cta}
-              <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+              Lihat Website
+              <svg xmlns="http://www.w3.org/2000/svg" class="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
                 <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" />
               </svg>
             </a>
           </div>
-
         </div>
       ))}
+
+      <!-- Coming soon: E-Commerce -->
+      <div
+        class="portfolio-card bg-white border border-dashed border-border rounded-xl overflow-hidden flex flex-col"
+        data-category="E-Commerce"
+      >
+        <div class="aspect-[16/10] bg-gray-50 flex items-center justify-center border-b border-dashed border-border">
+          <span class="font-body text-xs text-muted/50 uppercase tracking-widest">Segera Hadir</span>
+        </div>
+        <div class="p-5 flex flex-col flex-1">
+          <div class="flex items-start justify-between gap-2 mb-2">
+            <h3 class="font-heading font-bold text-base text-ink/40">E-Commerce Project</h3>
+            <span class="shrink-0 font-body text-xs font-medium text-muted border border-border rounded-full px-2.5 py-0.5 whitespace-nowrap">
+              E-Commerce
+            </span>
+          </div>
+          <p class="font-body text-sm text-muted/50 leading-relaxed">Toko online untuk bisnis produk lokal — sedang dalam pengerjaan.</p>
+        </div>
+      </div>
+
     </div>
 
-    <!-- Coming soon card -->
-    <div class="mt-16 border border-dashed border-border rounded-2xl p-8 md:p-12 text-center">
-      <p class="font-body text-xs font-semibold text-muted uppercase tracking-widest mb-3">Segera Hadir</p>
-      <h3 class="font-heading font-bold text-xl text-ink mb-3">Custom Web Application</h3>
-      <p class="font-body text-sm text-muted leading-relaxed max-w-md mx-auto">
-        Contoh dashboard internal, sistem operasional, dan aplikasi web custom akan ditambahkan seiring bertambahnya project dan studi kasus.
-      </p>
+    <!-- Empty state (shown when filter returns no results) -->
+    <div id="portfolio-empty" class="hidden text-center py-12">
+      <p class="font-body text-sm text-muted">Belum ada karya di kategori ini. Sedang dikerjakan.</p>
     </div>
 
-    <div class="mt-12 flex flex-col sm:flex-row items-start sm:items-center gap-4">
-      <Button href={site.waUrl()} target="_blank" rel="noopener noreferrer">
-        Diskusikan Kebutuhan Anda
-      </Button>
-    </div>
+    <a
+      href={site.waUrl()}
+      target="_blank"
+      rel="noopener noreferrer"
+      class="inline-flex items-center gap-2 bg-ink text-white px-6 py-3 rounded-full font-body font-semibold text-sm hover:bg-ink/90 transition-colors"
+    >
+      Diskusikan Kebutuhan Anda
+    </a>
 
   </div>
 </section>
+
+<script>
+  const filters = document.querySelectorAll<HTMLButtonElement>('.portfolio-filter');
+  const cards   = document.querySelectorAll<HTMLElement>('.portfolio-card');
+  const empty   = document.getElementById('portfolio-empty');
+
+  filters.forEach((btn) => {
+    btn.addEventListener('click', () => {
+      const selected = btn.dataset.filter ?? 'Semua';
+
+      // Update tab active state
+      filters.forEach((f) => {
+        const isActive = f.dataset.filter === selected;
+        f.setAttribute('aria-selected', isActive ? 'true' : 'false');
+        f.classList.toggle('bg-ink',    isActive);
+        f.classList.toggle('text-white', isActive);
+        f.classList.toggle('border-ink', isActive);
+        f.classList.toggle('bg-white',  !isActive);
+        f.classList.toggle('text-muted', !isActive);
+        f.classList.toggle('border-border', !isActive);
+      });
+
+      // Show / hide cards
+      let visible = 0;
+      cards.forEach((card) => {
+        const match = selected === 'Semua' || card.dataset.category === selected;
+        card.style.display = match ? '' : 'none';
+        if (match) visible++;
+      });
+
+      empty?.classList.toggle('hidden', visible > 0);
+    });
+  });
+</script>
