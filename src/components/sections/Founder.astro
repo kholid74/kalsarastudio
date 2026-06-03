@@ -1,7 +1,9 @@
 ---
+import { Image } from 'astro:assets';
 import SectionLabel from '../ui/SectionLabel.astro';
 import Button from '../ui/Button.astro';
 import { site } from '../../config/site';
+import founderImg from '../../assets/founder.png';
 ---
 
 <section class="bg-ink text-white py-20 md:py-28 px-6" id="tentang">
@@ -17,7 +19,7 @@ import { site } from '../../config/site';
         </h2>
 
         <p class="font-body text-base text-white/60 leading-relaxed mb-8">
-          Kalsara Digital Studio lahir dari pengalaman bertahun-tahun membangun solusi digital untuk berbagai kebutuhan bisnis. Kami percaya teknologi yang baik tidak harus rumit — yang penting tepat sasaran dan siap berkembang seiring bisnis Anda.
+          Kalsara Digital Studio membantu bisnis membangun website dan solusi digital yang tidak hanya terlihat profesional, tetapi juga siap berkembang seiring kebutuhan bisnis.
         </p>
 
         <Button href={site.waUrl()} target="_blank" rel="noopener noreferrer" data-wa-location="tentang_cta">
@@ -25,21 +27,24 @@ import { site } from '../../config/site';
         </Button>
       </div>
 
-      <!-- Founder as supporting element -->
+      <!-- Founder as subtle supporting element -->
       <div class="md:col-span-1 flex flex-col items-center md:items-start">
-        <div class="w-36 md:w-44 aspect-square rounded-full overflow-hidden bg-navy/50 border border-white/10 mb-4">
-          <img
-            src="/founder-placeholder.svg"
+        <div class="w-40 h-40 rounded-full overflow-hidden mb-3 shrink-0" style="border: 2px solid rgba(255,255,255,0.12);">
+          <Image
+            src={founderImg}
             alt="Kholid Putra — Founder Kalsara Digital Studio"
+            width={160}
+            height={160}
+            format="webp"
+            quality={85}
             class="w-full h-full object-cover"
             loading="lazy"
-            width="200"
-            height="200"
           />
         </div>
-        <p class="font-heading font-bold text-base text-white">Kholid Putra</p>
-        <p class="font-body text-sm text-white/50">Founder · Software Engineer</p>
+        <p class="font-heading font-bold text-sm text-white">Kholid Putra</p>
+        <p class="font-body text-xs text-white/50">Founder</p>
       </div>
+
     </div>
   </div>
 </section>
