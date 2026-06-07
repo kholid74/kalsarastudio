@@ -20,19 +20,139 @@ const {
 
 const canonicalUrl = new URL(Astro.url.pathname, site.url).toString();
 
-const jsonLd = {
+const organizationLd = {
   '@context': 'https://schema.org',
   '@type': 'Organization',
+  '@id': `${site.url}#organization`,
   name: site.name,
   url: site.url,
+  logo: new URL('/kalsara_logo.png', site.url).toString(),
   description: site.description,
+  email: site.email,
+  telephone: `+${site.whatsapp}`,
+  address: {
+    '@type': 'PostalAddress',
+    addressLocality: 'Tangerang Selatan',
+    addressRegion: 'Banten',
+    addressCountry: 'ID',
+  },
   founder: {
     '@type': 'Person',
+    '@id': `${site.url}#founder`,
     name: 'Kholid Putra',
-    jobTitle: 'Software Engineer',
+    jobTitle: 'Founder & Lead Engineer',
+    worksFor: { '@id': `${site.url}#organization` },
+    sameAs: ['https://www.linkedin.com/in/kholidputra'],
   },
-  areaServed: 'ID',
-  knowsAbout: ['Web Development', 'Software Engineering', 'Custom Web Application'],
+  areaServed: { '@type': 'Country', name: 'Indonesia' },
+  knowsAbout: [
+    'Web Development',
+    'Software Engineering',
+    'Custom Web Application',
+    'E-Commerce',
+    'Landing Page',
+    'Company Profile Website',
+  ],
+  sameAs: ['https://instagram.com/kalsaradigital'],
+};
+
+const serviceLd = {
+  '@context': 'https://schema.org',
+  '@type': 'ProfessionalService',
+  '@id': `${site.url}#service`,
+  name: site.name,
+  provider: { '@id': `${site.url}#organization` },
+  areaServed: { '@type': 'Country', name: 'Indonesia' },
+  hasOfferCatalog: {
+    '@type': 'OfferCatalog',
+    name: 'Layanan Kalsara Digital Studio',
+    itemListElement: [
+      {
+        '@type': 'Offer',
+        itemOffered: { '@type': 'Service', name: 'Website Company Profile' },
+        price: '3500000',
+        priceCurrency: 'IDR',
+      },
+      {
+        '@type': 'Offer',
+        itemOffered: { '@type': 'Service', name: 'Landing Page' },
+        price: '3500000',
+        priceCurrency: 'IDR',
+      },
+      {
+        '@type': 'Offer',
+        itemOffered: { '@type': 'Service', name: 'E-Commerce Website' },
+        price: '7500000',
+        priceCurrency: 'IDR',
+      },
+      {
+        '@type': 'Offer',
+        itemOffered: { '@type': 'Service', name: 'Custom Web Application' },
+        price: '15000000',
+        priceCurrency: 'IDR',
+      },
+    ],
+  },
+};
+
+const faqLd = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: [
+    {
+      '@type': 'Question',
+      name: 'Apakah domain dan hosting sudah termasuk dalam harga?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Biaya domain dan hosting tidak termasuk dalam paket harga kami. Kami akan memberikan rekomendasi penyedia hosting yang sesuai dengan kebutuhan dan anggaran Anda, serta membantu proses setup-nya.',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: 'Berapa lama proses pengerjaan website?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Tergantung pada kompleksitas proyek. Company profile dan landing page biasanya selesai dalam 2–3 minggu. E-commerce 3–5 minggu. Custom web application didiskusikan berdasarkan scope pekerjaan.',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: 'Berapa kali revisi yang diperbolehkan?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Setiap paket mencakup revisi yang disepakati di awal dalam proposal. Revisi di luar scope dapat diakomodasi dengan biaya tambahan yang transparan sebelum dikerjakan.',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: 'Siapa yang memiliki source code dan konten website?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Anda. Setelah pelunasan, seluruh source code, aset, dan konten website menjadi hak milik Anda sepenuhnya. Tidak ada biaya lisensi atau ketergantungan pada platform kami.',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: 'Apakah ada layanan maintenance setelah website diluncurkan?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Ya. Setiap paket mencakup periode support setelah launch. Kami juga menyediakan paket maintenance bulanan untuk update konten, keamanan, dan performa.',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: 'Apakah website yang dibangun bisa dikembangkan menjadi aplikasi lebih besar?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Ya. Website kami dibangun di atas arsitektur yang dapat berkembang. Ketika bisnis Anda siap, kami dapat membangun dashboard, CRM, sistem internal, atau aplikasi custom di atas fondasi yang sudah ada.',
+      },
+    },
+  ],
+};
+
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@graph': [organizationLd, serviceLd, faqLd],
 };
 ---
 
