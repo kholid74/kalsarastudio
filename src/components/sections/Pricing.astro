@@ -11,7 +11,7 @@ const plans = [
     scope:    'Company Profile & Landing Page',
     items:    ['Desain custom (bukan template)', 'Mobile-first & responsive', 'SEO dasar', 'Domain & hosting guidance', '1 bulan support'],
     featured: false,
-    cta:      'Mulai Sekarang',
+    cta:      'Tanya Apakah Cocok untuk Saya',
   },
   {
     id:       'growth',
@@ -20,7 +20,7 @@ const plans = [
     scope:    'E-Commerce & Website Multi-page',
     items:    ['Semua dari Foundation', 'Manajemen produk & pesanan', 'Integrasi payment gateway', 'Admin panel / CMS', '3 bulan support'],
     featured: true,
-    cta:      'Pilih Paket Ini',
+    cta:      'Diskusikan Paket Ini',
   },
   {
     id:       'custom',
@@ -29,7 +29,7 @@ const plans = [
     scope:    'Custom Web Application',
     items:    ['Sistem custom sesuai proses bisnis', 'Dashboard / portal / CRM', 'Integrasi API & automasi', 'Konsultasi kebutuhan sistem', 'Support & maintenance plan'],
     featured: false,
-    cta:      'Diskusikan Kebutuhan',
+    cta:      'Jadwalkan Konsultasi',
   },
 ] as const;
 ---
@@ -41,6 +41,16 @@ const plans = [
       <h2 class="font-heading font-extrabold text-3xl md:text-4xl text-ink">
         Investasi yang Sesuai dengan Tahap Bisnis Anda.
       </h2>
+      <div class="mt-5 inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-blue/8 border border-blue/20">
+        <span class="relative flex h-2 w-2">
+          <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-blue/40 opacity-75"></span>
+          <span class="relative inline-flex rounded-full h-2 w-2 bg-blue"></span>
+        </span>
+        <p class="font-body text-xs text-ink/70">
+          <strong class="text-ink font-semibold">Maksimal 4 proyek baru per bulan</strong>
+          — agar setiap klien mendapat perhatian penuh.
+        </p>
+      </div>
     </div>
 
     <div class="grid grid-cols-1 md:grid-cols-3 gap-6 items-start">
@@ -48,10 +58,10 @@ const plans = [
         <div
           data-plan={p.id}
           class={[
-            'rounded-xl p-8 flex flex-col relative',
+            'rounded-xl p-8 flex flex-col relative transition-all duration-200',
             p.featured
-              ? 'bg-navy text-white border-2 border-blue'
-              : 'bg-white text-ink border border-border',
+              ? 'bg-navy text-white border-2 border-blue shadow-card-featured md:-translate-y-2'
+              : 'bg-white text-ink border border-border shadow-card hover:shadow-card-hover hover:-translate-y-0.5',
           ].join(' ')}
         >
           {p.featured && (
@@ -101,6 +111,8 @@ const plans = [
 
     <p class="mt-8 text-center font-body text-sm text-muted">
       Setiap proyek memiliki kebutuhan yang berbeda. Hubungi kami untuk mendapatkan estimasi yang sesuai.
+      <br class="hidden sm:block" />
+      <span class="text-ink/70">Konsultasi 30 menit gratis, tanpa komitmen.</span>
     </p>
   </div>
 </section>
