@@ -1,0 +1,86 @@
+---
+import Base from '../layouts/Base.astro';
+import Nav from '../components/layout/Nav.astro';
+import Footer from '../components/layout/Footer.astro';
+import FloatingWhatsApp from '../components/FloatingWhatsApp.astro';
+import { site } from '../config/site';
+
+const lastUpdated = '7 Juni 2026';
+---
+
+<Base title={`Kebijakan Privasi — ${site.name}`} description="Kebijakan privasi Kalsara Digital Studio mengenai pengumpulan, penggunaan, dan perlindungan data pengunjung dan klien.">
+  <Nav />
+  <main class="pt-28 pb-20 px-6 bg-white">
+    <article class="max-w-3xl mx-auto">
+      <p class="font-body text-xs uppercase tracking-widest text-blue mb-3">Legal</p>
+      <h1 class="font-heading font-extrabold text-3xl md:text-5xl text-ink mb-3">Kebijakan Privasi</h1>
+      <p class="font-body text-sm text-muted mb-12">Terakhir diperbarui: {lastUpdated}</p>
+
+      <div class="prose-content font-body text-base text-ink/80 leading-relaxed space-y-6">
+        <p>
+          Kalsara Digital Studio ("Kalsara", "kami") menghargai privasi setiap pengunjung dan klien.
+          Halaman ini menjelaskan data apa yang kami kumpulkan, untuk apa kami menggunakannya, dan
+          bagaimana kami melindunginya.
+        </p>
+
+        <h2 class="font-heading font-bold text-xl text-ink mt-10 mb-3">1. Data yang Kami Kumpulkan</h2>
+        <ul class="list-disc pl-5 space-y-2">
+          <li><strong class="text-ink">Data kontak</strong> — nama, nomor WhatsApp, email — saat Anda menghubungi kami melalui WhatsApp atau form.</li>
+          <li><strong class="text-ink">Data percakapan</strong> — isi diskusi terkait kebutuhan proyek Anda.</li>
+          <li><strong class="text-ink">Data analitik</strong> — kami menggunakan Google Analytics untuk mengukur traffic website (halaman dikunjungi, durasi, perangkat, lokasi umum). Tidak ada data identifikasi personal yang dikirim.</li>
+        </ul>
+
+        <h2 class="font-heading font-bold text-xl text-ink mt-10 mb-3">2. Penggunaan Data</h2>
+        <p>Data yang Anda berikan kami gunakan untuk:</p>
+        <ul class="list-disc pl-5 space-y-2">
+          <li>Membalas pertanyaan dan menyusun proposal proyek.</li>
+          <li>Mengirim update terkait proyek yang sedang berjalan.</li>
+          <li>Menyimpan riwayat komunikasi untuk keperluan support pasca-launch.</li>
+        </ul>
+        <p>Kami <strong class="text-ink">tidak</strong> menjual, menyewakan, atau membagikan data Anda kepada pihak ketiga untuk kepentingan marketing.</p>
+
+        <h2 class="font-heading font-bold text-xl text-ink mt-10 mb-3">3. Cookies</h2>
+        <p>
+          Website ini menggunakan cookie pihak ketiga dari Google Analytics untuk keperluan
+          pengukuran trafik. Anda dapat menonaktifkan cookie melalui pengaturan browser tanpa
+          mempengaruhi fungsi inti website.
+        </p>
+
+        <h2 class="font-heading font-bold text-xl text-ink mt-10 mb-3">4. Penyimpanan dan Keamanan</h2>
+        <p>
+          Data percakapan klien disimpan selama proyek berjalan dan hingga maksimal 2 tahun setelah
+          proyek selesai untuk keperluan dokumentasi dan support. Setelah itu data dapat dihapus
+          atas permintaan Anda.
+        </p>
+
+        <h2 class="font-heading font-bold text-xl text-ink mt-10 mb-3">5. Hak Anda</h2>
+        <p>Anda berhak untuk:</p>
+        <ul class="list-disc pl-5 space-y-2">
+          <li>Meminta akses ke data yang kami simpan tentang Anda.</li>
+          <li>Meminta koreksi atau penghapusan data tersebut.</li>
+          <li>Mencabut persetujuan komunikasi kapan saja.</li>
+        </ul>
+        <p>
+          Untuk menggunakan hak ini, hubungi kami di
+          <a href={`mailto:${site.email}`} class="text-blue hover:underline">{site.email}</a>.
+        </p>
+
+        <h2 class="font-heading font-bold text-xl text-ink mt-10 mb-3">6. Perubahan Kebijakan</h2>
+        <p>
+          Kebijakan ini dapat diperbarui dari waktu ke waktu. Perubahan signifikan akan kami
+          informasikan melalui halaman ini dengan tanggal "Terakhir diperbarui" yang sesuai.
+        </p>
+
+        <h2 class="font-heading font-bold text-xl text-ink mt-10 mb-3">7. Kontak</h2>
+        <p>
+          Pertanyaan terkait kebijakan privasi ini? Hubungi:<br />
+          <strong class="text-ink">Kalsara Digital Studio</strong><br />
+          Email: <a href={`mailto:${site.email}`} class="text-blue hover:underline">{site.email}</a><br />
+          Tangerang Selatan, Indonesia
+        </p>
+      </div>
+    </article>
+  </main>
+  <Footer />
+  <FloatingWhatsApp />
+</Base>

@@ -1,0 +1,104 @@
+---
+import Base from '../layouts/Base.astro';
+import Nav from '../components/layout/Nav.astro';
+import Footer from '../components/layout/Footer.astro';
+import FloatingWhatsApp from '../components/FloatingWhatsApp.astro';
+import { site } from '../config/site';
+
+const lastUpdated = '7 Juni 2026';
+---
+
+<Base title={`Syarat & Ketentuan — ${site.name}`} description="Syarat dan ketentuan layanan Kalsara Digital Studio untuk pembuatan website dan solusi digital.">
+  <Nav />
+  <main class="pt-28 pb-20 px-6 bg-white">
+    <article class="max-w-3xl mx-auto">
+      <p class="font-body text-xs uppercase tracking-widest text-blue mb-3">Legal</p>
+      <h1 class="font-heading font-extrabold text-3xl md:text-5xl text-ink mb-3">Syarat &amp; Ketentuan</h1>
+      <p class="font-body text-sm text-muted mb-12">Terakhir diperbarui: {lastUpdated}</p>
+
+      <div class="prose-content font-body text-base text-ink/80 leading-relaxed space-y-6">
+        <p>
+          Dokumen ini menjelaskan syarat penggunaan layanan Kalsara Digital Studio. Dengan
+          menggunakan layanan kami, Anda dianggap menyetujui ketentuan di bawah ini.
+        </p>
+
+        <h2 class="font-heading font-bold text-xl text-ink mt-10 mb-3">1. Cakupan Layanan</h2>
+        <p>
+          Kalsara menyediakan jasa pembuatan website, landing page, e-commerce, custom web
+          application, dan solusi digital terkait. Cakupan setiap proyek didefinisikan secara
+          tertulis dalam proposal yang disetujui kedua pihak.
+        </p>
+
+        <h2 class="font-heading font-bold text-xl text-ink mt-10 mb-3">2. Proses dan Timeline</h2>
+        <ul class="list-disc pl-5 space-y-2">
+          <li>Timeline proyek dimulai dari tanggal pelunasan DP dan penyerahan materi konten oleh klien.</li>
+          <li>Keterlambatan penyerahan materi dari klien dapat menggeser timeline secara proporsional.</li>
+          <li>Update progres diberikan secara berkala via WhatsApp atau email sesuai kesepakatan.</li>
+        </ul>
+
+        <h2 class="font-heading font-bold text-xl text-ink mt-10 mb-3">3. Pembayaran</h2>
+        <ul class="list-disc pl-5 space-y-2">
+          <li>Pembayaran umumnya dilakukan dalam dua tahap: 50% DP saat proyek dimulai, 50% pelunasan sebelum website di-deploy ke production.</li>
+          <li>Skema pembayaran lain dapat disepakati untuk proyek custom berskala besar.</li>
+          <li>Harga yang tercantum di halaman <a href="/#harga" class="text-blue hover:underline">Paket Harga</a> adalah harga mulai dan dapat disesuaikan berdasarkan scope final.</li>
+        </ul>
+
+        <h2 class="font-heading font-bold text-xl text-ink mt-10 mb-3">4. Revisi</h2>
+        <p>
+          Setiap paket mencakup jumlah revisi yang disepakati di proposal. Revisi di luar scope
+          akan dikomunikasikan transparan terlebih dahulu beserta biaya tambahannya, sebelum
+          dikerjakan.
+        </p>
+
+        <h2 class="font-heading font-bold text-xl text-ink mt-10 mb-3">5. Kepemilikan</h2>
+        <p>
+          Setelah pelunasan, <strong class="text-ink">seluruh source code, desain, dan konten</strong>
+          menjadi milik klien sepenuhnya. Kalsara tidak menyimpan hak kepemilikan atau biaya
+          lisensi atas hasil kerja.
+        </p>
+
+        <h2 class="font-heading font-bold text-xl text-ink mt-10 mb-3">6. Domain dan Hosting</h2>
+        <p>
+          Biaya domain dan hosting tidak termasuk dalam paket. Kalsara memberikan rekomendasi
+          provider dan membantu setup awal. Akun domain/hosting tetap atas nama klien.
+        </p>
+
+        <h2 class="font-heading font-bold text-xl text-ink mt-10 mb-3">7. Support Pasca-Launch</h2>
+        <p>
+          Setiap paket mencakup periode support setelah launch (1–3 bulan tergantung paket). Setelah
+          periode tersebut, support dapat dilanjutkan melalui paket maintenance bulanan yang
+          terpisah.
+        </p>
+
+        <h2 class="font-heading font-bold text-xl text-ink mt-10 mb-3">8. Pembatalan</h2>
+        <ul class="list-disc pl-5 space-y-2">
+          <li>Pembatalan sebelum proyek dimulai: DP akan dikembalikan setelah dikurangi biaya administrasi.</li>
+          <li>Pembatalan di tengah proyek: pembayaran yang sudah dilakukan tidak dapat dikembalikan, namun klien menerima hasil kerja yang sudah selesai sampai titik pembatalan.</li>
+        </ul>
+
+        <h2 class="font-heading font-bold text-xl text-ink mt-10 mb-3">9. Tanggung Jawab</h2>
+        <p>
+          Kalsara berkomitmen pada kualitas pengerjaan sesuai standar engineering yang baik. Namun
+          kami tidak bertanggung jawab atas kerugian yang timbul karena penggunaan website di luar
+          rekomendasi (modifikasi pihak ketiga tanpa konsultasi, hosting yang tidak direkomendasikan,
+          dll).
+        </p>
+
+        <h2 class="font-heading font-bold text-xl text-ink mt-10 mb-3">10. Hukum yang Berlaku</h2>
+        <p>
+          Syarat ini diatur berdasarkan hukum Republik Indonesia. Setiap perselisihan akan
+          diselesaikan terlebih dahulu melalui musyawarah; bila tidak tercapai, melalui jalur hukum
+          di wilayah Tangerang Selatan, Banten.
+        </p>
+
+        <h2 class="font-heading font-bold text-xl text-ink mt-10 mb-3">11. Kontak</h2>
+        <p>
+          Pertanyaan terkait syarat &amp; ketentuan ini:<br />
+          Email: <a href={`mailto:${site.email}`} class="text-blue hover:underline">{site.email}</a>
+        </p>
+      </div>
+    </article>
+  </main>
+  <Footer />
+  <FloatingWhatsApp />
+</Base>

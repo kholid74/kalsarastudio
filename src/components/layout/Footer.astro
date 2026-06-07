@@ -82,10 +82,22 @@ import WhatsAppButton from '../WhatsAppButton.astro';
 
     </div>
 
-    <div class="pt-6 border-t border-white/10">
+    <div class="pt-6 border-t border-white/10 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
       <p class="font-body text-xs text-white/30">
         &copy; {new Date().getFullYear()} Kalsara Digital Studio. All rights reserved.
       </p>
+      <ul class="flex flex-wrap gap-x-5 gap-y-2">
+        <li>
+          <a href="/kebijakan-privasi" class="font-body text-xs text-white/40 hover:text-white/80 transition-colors">
+            Kebijakan Privasi
+          </a>
+        </li>
+        <li>
+          <a href="/syarat-ketentuan" class="font-body text-xs text-white/40 hover:text-white/80 transition-colors">
+            Syarat &amp; Ketentuan
+          </a>
+        </li>
+      </ul>
     </div>
   </div>
 </footer>
