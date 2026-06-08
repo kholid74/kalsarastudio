@@ -27,7 +27,7 @@ const points = [
 
 <section class="bg-surface py-20 md:py-28 px-6" id="mengapa">
   <div class="max-w-site mx-auto">
-    <div class="mb-12">
+    <div class="mb-12" data-reveal>
       <SectionLabel class="mb-3">Mengapa Kalsara</SectionLabel>
       <h2 class="font-heading font-extrabold text-3xl md:text-4xl text-ink max-w-lg">
         Mitra Digital yang Berfokus pada Pertumbuhan Bisnis Anda.
@@ -35,12 +35,12 @@ const points = [
     </div>
 
     <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
-      {points.map((p) => (
-        <div data-point class="bg-white border border-border rounded-xl p-7">
-          <div class="w-10 h-10 rounded-lg bg-blue/10 flex items-center justify-center mb-5">
-            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="#1E73FF" class="w-5 h-5" set:html={p.icon} />
+      {points.map((p, i) => (
+        <div data-point data-reveal data-reveal-delay={(i * 100).toString()} class="why-card group bg-white border border-border rounded-2xl p-7 md:p-8 shadow-card hover:shadow-card-hover hover:-translate-y-1 hover:border-blue/30 transition-all duration-300">
+          <div class="why-card__icon-wrap w-14 h-14 rounded-2xl bg-gradient-to-br from-blue/10 to-cyan/10 flex items-center justify-center mb-6 ring-1 ring-blue/15 group-hover:ring-blue/30 transition-all duration-300">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.8" stroke="#1E73FF" class="w-7 h-7" set:html={p.icon} />
           </div>
-          <h3 class="font-heading font-bold text-base text-ink mb-2">{p.title}</h3>
+          <h3 class="font-heading font-bold text-lg text-ink mb-3">{p.title}</h3>
           <p class="font-body text-sm text-muted leading-relaxed">{p.desc}</p>
         </div>
       ))}
