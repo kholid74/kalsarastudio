@@ -39,21 +39,21 @@ const services = [
 
 <section class="bg-white py-20 md:py-28 px-6" id="layanan">
   <div class="max-w-site mx-auto">
-    <div class="mb-12">
+    <div class="mb-12" data-reveal>
       <SectionLabel class="mb-3">Layanan</SectionLabel>
       <h2 class="font-heading font-extrabold text-3xl md:text-4xl text-ink">
         Dari Website hingga Aplikasi Custom.
       </h2>
     </div>
 
-    <div class="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-0 border border-border rounded-xl overflow-hidden">
+    <div class="services-grid grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-0 border border-border rounded-xl overflow-hidden shadow-card" data-reveal data-reveal-delay="100">
       {services.map((s) => (
         <div
           data-service={s.id}
           class={[
-            'flex flex-col p-7 border-b xl:border-b-0 xl:border-r border-border last:border-0',
-            'border-t-4',
-            s.dark ? 'bg-navy border-t-cyan text-white' : 'bg-white border-t-blue text-ink',
+            'service-card relative flex flex-col p-7 border-b xl:border-b-0 xl:border-r border-border last:border-0',
+            'border-t-4 transition-all duration-300',
+            s.dark ? 'bg-navy border-t-cyan text-white' : 'bg-white border-t-blue text-ink hover:bg-surface',
           ].join(' ')}
         >
           <h3 class={`font-heading font-bold text-base mb-3 ${s.dark ? 'text-white' : 'text-ink'}`}>
@@ -73,3 +73,33 @@ const services = [
     </div>
   </div>
 </section>
+
+<style>
+  /* Service card hover: top-border thicken + subtle inner light */
+  .service-card {
+    isolation: isolate;
+  }
+  .service-card::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle at top, rgba(30, 115, 255, 0.04), transparent 60%);
+    opacity: 0;
+    transition: opacity 300ms ease;
+    pointer-events: none;
+    z-index: 0;
+  }
+  .service-card:hover::before {
+    opacity: 1;
+  }
+  .service-card > * {
+    position: relative;
+    z-index: 1;
+  }
+  .service-card.bg-navy::before {
+    background: radial-gradient(circle at top, rgba(0, 212, 255, 0.08), transparent 60%);
+  }
+  .service-card.bg-navy:hover::before {
+    opacity: 1;
+  }
+</style>
