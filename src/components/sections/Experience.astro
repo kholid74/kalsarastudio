@@ -5,6 +5,7 @@ import WhatsAppButton from '../WhatsAppButton.astro';
 import { site } from '../../config/site';
 import imgGaruda from '../../assets/portfolio/project_garuda.png';
 import imgBerkah from '../../assets/portfolio/project_berkah_raya.png';
+import imgLumaCo from '../../assets/portfolio/project_luma_co.png';
 
 const projects = [
   {
@@ -25,9 +26,18 @@ const projects = [
     image: imgBerkah,
     imageAlt: 'Screenshot website Berkah Raya Farm',
   },
+  {
+    title: 'Luma & Co. Restaurant',
+    category: 'F&B / Restaurant',
+    desc: 'Website restaurant modern dengan showcase menu, ambience, review tamu, dan alur reservasi yang membantu calon pelanggan memahami pengalaman makan sebelum melakukan booking.',
+    tags: ['Restaurant', 'Menu Showcase', 'Reservation Flow'],
+    url: 'https://luna-co-restaurant.vercel.app/',
+    image: imgLumaCo,
+    imageAlt: 'Screenshot website Luma & Co. Restaurant',
+  },
 ];
 
-const categories = ['Semua', 'Company Profile', 'Landing Page', 'E-Commerce'] as const;
+const categories = ['Semua', 'Company Profile', 'Landing Page', 'F&B / Restaurant', 'E-Commerce'] as const;
 ---
 
 <section class="bg-surface py-20 md:py-28 px-6" id="karya">
