@@ -13,7 +13,7 @@ import IdealClient from '../components/sections/IdealClient.astro';
 import Process from '../components/sections/Process.astro';
 import Pricing from '../components/sections/Pricing.astro';
 import FAQ from '../components/sections/FAQ.astro';
-import FinalCTA from '../components/sections/FinalCTA.astro';
+// import FinalCTA from '../components/sections/FinalCTA.astro'; // hidden — superseded by Footer CTA strip to avoid CTA duplication
 ---
 
 <Base>
@@ -29,7 +29,7 @@ import FinalCTA from '../components/sections/FinalCTA.astro';
     <Process />
     {/* <Founder /> — hidden until copy is reviewed */}
     <FAQ />
-    <FinalCTA />
+    {/* <FinalCTA /> — hidden: footer CTA strip (Mari diskusikan kebutuhan...) now serves as the closing CTA */}
   </main>
   <Footer />
   <FloatingWhatsApp />
