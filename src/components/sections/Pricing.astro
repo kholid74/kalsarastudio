@@ -36,7 +36,7 @@ const plans = [
 
 <section class="bg-surface py-20 md:py-28 px-6" id="harga">
   <div class="max-w-site mx-auto">
-    <div class="mb-12">
+    <div class="mb-12" data-reveal>
       <SectionLabel class="mb-3">Paket Harga</SectionLabel>
       <h2 class="font-heading font-extrabold text-3xl md:text-4xl text-ink">
         Investasi yang Sesuai dengan Tahap Bisnis Anda.
@@ -54,9 +54,11 @@ const plans = [
     </div>
 
     <div class="grid grid-cols-1 md:grid-cols-3 gap-6 items-start">
-      {plans.map((p) => (
+      {plans.map((p, i) => (
         <div
           data-plan={p.id}
+          data-reveal
+          data-reveal-delay={(i * 100).toString()}
           class={[
             'rounded-xl p-8 flex flex-col relative transition-all duration-200',
             p.featured

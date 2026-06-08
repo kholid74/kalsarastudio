@@ -65,10 +65,12 @@ const categories = ['Semua', 'Company Profile', 'Landing Page', 'E-Commerce'] as
     <!-- Portfolio grid -->
     <div id="portfolio-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-10">
 
-      {projects.map((p) => (
+      {projects.map((p, i) => (
         <div
           class="portfolio-card bg-white border border-border rounded-xl overflow-hidden flex flex-col group shadow-card hover:shadow-card-hover hover:-translate-y-1 transition-all duration-200"
           data-category={p.category}
+          data-reveal
+          data-reveal-delay={(i * 100).toString()}
         >
           <!-- Browser mockup screenshot -->
           <div class="border-b border-border">
