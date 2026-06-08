@@ -17,9 +17,9 @@ const {
   'data-wa-location': waLocation,
 } = Astro.props;
 
-const base    = 'inline-flex items-center justify-center gap-2 px-6 py-3 rounded-full font-body font-semibold text-sm transition-all duration-150 focus-visible:outline-2 focus-visible:outline-offset-2';
-const primary = 'bg-blue text-white hover:bg-blue/90 focus-visible:outline-blue';
-const secondary = 'border border-white/20 text-white/50 hover:border-white/40 hover:text-white/80 focus-visible:outline-white';
+const base    = 'inline-flex items-center justify-center gap-2 px-6 py-3 rounded-full font-body font-semibold text-sm transition-all duration-200 focus-visible:outline-2 focus-visible:outline-offset-2 will-change-transform';
+const primary = 'bg-blue text-white shadow-[0_4px_14px_rgba(30,115,255,0.35)] hover:bg-blue/90 hover:shadow-[0_8px_22px_rgba(30,115,255,0.45)] hover:-translate-y-0.5 active:translate-y-0 focus-visible:outline-blue';
+const secondary = 'border border-white/20 text-white/70 backdrop-blur-sm hover:border-white/50 hover:text-white hover:bg-white/5 focus-visible:outline-white';
 
 const classes = [base, variant === 'primary' ? primary : secondary, className].join(' ');
 ---

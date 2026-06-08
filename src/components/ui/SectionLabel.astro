@@ -5,8 +5,10 @@ interface Props {
 }
 const { dark = false, class: className = '' } = Astro.props;
 const color = dark ? 'text-cyan' : 'text-blue';
+const dotBg = dark ? 'bg-cyan' : 'bg-blue';
 ---
 
-<p class={`font-body font-semibold text-xs tracking-widest uppercase ${color} ${className}`}>
+<p class={`section-label inline-flex items-center gap-2 font-body font-semibold text-xs tracking-[0.22em] uppercase ${color} ${className}`}>
+  <span class={`section-label__dot inline-block w-1.5 h-1.5 rounded-full ${dotBg}`} aria-hidden="true"></span>
   <slot />
 </p>
