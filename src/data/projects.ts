@@ -29,6 +29,13 @@ export type Project = {
   decisions: string[];
   idealFor: string[];
   tags: string[];
+  sectionBreakdown?: {
+    title: string;
+    description: string;
+    purpose: string;
+  }[];
+  expectedImpact?: string[];
+  seoOpportunities?: string[];
   url: string;
   image: ImageMetadata;
   imageAlt: string;
@@ -119,6 +126,35 @@ export const projects: Project[] = [
     ],
     idealFor: ['Restaurant', 'Cafe premium', 'Private dining', 'Bistro lokal', 'F&B brand dengan reservasi'],
     tags: ['Restaurant', 'Menu Showcase', 'Reservation Flow'],
+    sectionBreakdown: [
+      {
+        title: 'Reservation-first homepage',
+        description: 'Hero section langsung mengarahkan pengunjung ke aksi reservasi tanpa menghilangkan nuansa premium restaurant.',
+        purpose: 'Mengubah visitor yang sudah tertarik menjadi booking inquiry lebih cepat.',
+      },
+      {
+        title: 'Menu and signature dish showcase',
+        description: 'Menu ditampilkan sebagai bagian dari experience, bukan hanya daftar makanan, agar pengunjung memahami karakter restaurant.',
+        purpose: 'Membantu calon pelanggan memutuskan apakah menu dan ambience cocok dengan momen mereka.',
+      },
+      {
+        title: 'Ambience and social proof layer',
+        description: 'Visual ambience, review tamu, dan story restaurant dipakai untuk membangun trust sebelum pengunjung melakukan reservasi.',
+        purpose: 'Meningkatkan confidence untuk first-time visitors yang belum pernah datang langsung.',
+      },
+    ],
+    expectedImpact: [
+      'Calon pelanggan lebih cepat memahami menu, ambience, dan value restaurant.',
+      'Reservasi lebih mudah diarahkan karena CTA tidak hanya muncul di akhir halaman.',
+      'Website bisa menjadi destination page saat restaurant dipromosikan lewat Instagram, Google Maps, atau campaign lokal.',
+      'Restaurant terlihat lebih premium dibanding hanya mengandalkan link menu atau media sosial.',
+    ],
+    seoOpportunities: [
+      'website restaurant modern',
+      'contoh website restaurant',
+      'website cafe dan restaurant',
+      'reservasi restaurant online',
+    ],
     url: 'https://luna-co-restaurant.vercel.app/',
     image: imgLumaCo,
     imageAlt: 'Screenshot website Luma & Co. Restaurant',
@@ -150,6 +186,35 @@ export const projects: Project[] = [
     ],
     idealFor: ['Klinik gigi', 'Klinik umum', 'Praktik dokter', 'Healthcare provider lokal'],
     tags: ['Clinic Website', 'Online Booking', 'Healthcare SEO'],
+    sectionBreakdown: [
+      {
+        title: 'Patient trust architecture',
+        description: 'Informasi layanan, dokter, asuransi, dan edukasi disusun agar calon pasien merasa lebih yakin sebelum membuat janji.',
+        purpose: 'Mengurangi keraguan first-time patient yang belum pernah datang ke klinik.',
+      },
+      {
+        title: 'Booking-oriented service flow',
+        description: 'Setiap layanan diarahkan ke alur booking yang jelas, bukan berhenti sebagai informasi pasif.',
+        purpose: 'Membantu admin menerima inquiry yang lebih spesifik dan siap ditindaklanjuti.',
+      },
+      {
+        title: 'Healthcare SEO content layer',
+        description: 'Artikel edukasi dan struktur layanan membuka peluang pencarian organik untuk topik kesehatan gigi lokal.',
+        purpose: 'Membuat website berfungsi sebagai aset jangka panjang, bukan hanya brosur digital.',
+      },
+    ],
+    expectedImpact: [
+      'Calon pasien bisa memahami layanan, dokter, dan cara booking tanpa harus bertanya dari awal via WhatsApp.',
+      'Klinik terlihat lebih profesional sebelum pasien datang langsung.',
+      'Admin dapat menerima pertanyaan yang lebih terarah karena informasi dasar sudah tersedia di website.',
+      'Konten edukasi memberi peluang SEO untuk pencarian lokal seputar perawatan gigi.',
+    ],
+    seoOpportunities: [
+      'website klinik gigi',
+      'contoh website klinik gigi',
+      'booking dokter gigi online',
+      'jasa pembuatan website klinik',
+    ],
     url: 'https://klinik-gigi-platform.vercel.app/',
     image: imgKlinikGigi,
     imageAlt: 'Screenshot showcase website Klinik Gigi Senyum Sehat',
