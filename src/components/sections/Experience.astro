@@ -6,6 +6,7 @@ import { site } from '../../config/site';
 import imgGaruda from '../../assets/portfolio/project_garuda.png';
 import imgBerkah from '../../assets/portfolio/project_berkah_raya.png';
 import imgLumaCo from '../../assets/portfolio/project_luma_co.png';
+import imgKlinikGigi from '../../assets/portfolio/project_klinik_gigi.png';
 
 const projects = [
   {
@@ -35,9 +36,19 @@ const projects = [
     image: imgLumaCo,
     imageAlt: 'Screenshot website Luma & Co. Restaurant',
   },
+  {
+    title: 'Klinik Gigi Senyum Sehat',
+    category: 'Clinic / Healthcare',
+    badge: 'Showcase',
+    desc: 'Showcase website klinik gigi dengan struktur layanan, profil dokter, artikel edukasi, informasi asuransi, dan alur booking online untuk membantu pasien membuat janji lebih mudah.',
+    tags: ['Clinic Website', 'Online Booking', 'Healthcare SEO'],
+    url: 'https://klinik-gigi-platform.vercel.app/',
+    image: imgKlinikGigi,
+    imageAlt: 'Screenshot showcase website Klinik Gigi Senyum Sehat',
+  },
 ];
 
-const categories = ['Semua', 'Company Profile', 'Landing Page', 'F&B / Restaurant', 'E-Commerce'] as const;
+const categories = ['Semua', 'Company Profile', 'Landing Page', 'F&B / Restaurant', 'Clinic / Healthcare', 'E-Commerce'] as const;
 ---
 
 <section class="bg-surface py-20 md:py-28 px-6" id="karya">
@@ -110,9 +121,16 @@ const categories = ['Semua', 'Company Profile', 'Landing Page', 'F&B / Restauran
           <div class="p-5 flex flex-col flex-1">
             <div class="flex items-start justify-between gap-2 mb-2">
               <h3 class="font-heading font-bold text-base text-ink">{p.title}</h3>
-              <span class="shrink-0 font-body text-xs font-medium text-blue bg-blue/8 border border-blue/15 rounded-full px-2.5 py-0.5 whitespace-nowrap">
-                {p.category}
-              </span>
+              <div class="shrink-0 flex flex-col items-end gap-1">
+                {p.badge && (
+                  <span class="font-body text-[10px] font-semibold uppercase tracking-wider text-amber-700 bg-amber-50 border border-amber-200 rounded-full px-2 py-0.5 whitespace-nowrap">
+                    {p.badge}
+                  </span>
+                )}
+                <span class="font-body text-xs font-medium text-blue bg-blue/8 border border-blue/15 rounded-full px-2.5 py-0.5 whitespace-nowrap">
+                  {p.category}
+                </span>
+              </div>
             </div>
             <p class="font-body text-sm text-muted leading-relaxed mb-4 flex-1">{p.desc}</p>
             <div class="flex flex-wrap gap-1.5 mb-4">
