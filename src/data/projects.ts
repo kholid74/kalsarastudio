@@ -67,6 +67,35 @@ export const projects: Project[] = [
     ],
     idealFor: ['Tour & travel', 'Paket wisata lokal', 'Operator trip', 'Bisnis hospitality berbasis inquiry'],
     tags: ['Travel & Tourism', 'WhatsApp Booking', 'SEO-Friendly'],
+    sectionBreakdown: [
+      {
+        title: 'Destination-first company profile',
+        description: 'Halaman dibuka dengan konteks destinasi dan value perjalanan agar calon pelanggan langsung memahami fokus layanan Garuda Pariwisata.',
+        purpose: 'Membuat visitor cepat mengenali jenis paket wisata sebelum masuk ke detail atau bertanya via WhatsApp.',
+      },
+      {
+        title: 'Package and inquiry pathway',
+        description: 'Konten paket, benefit, dan CTA WhatsApp disusun sebagai jalur inquiry yang praktis untuk bisnis travel berbasis konsultasi.',
+        purpose: 'Mengurangi pertanyaan berulang dan membantu calon pelanggan memulai percakapan dengan konteks yang lebih jelas.',
+      },
+      {
+        title: 'Trust and SEO-ready structure',
+        description: 'Struktur heading, copy, dan section dibuat agar website tidak hanya menjadi brosur online, tetapi juga fondasi pencarian organik.',
+        purpose: 'Mendukung kredibilitas brand travel sekaligus membuka peluang traffic dari pencarian destinasi/paket wisata.',
+      },
+    ],
+    expectedImpact: [
+      'Calon pelanggan dapat memahami layanan travel dan paket wisata dengan lebih cepat sebelum menghubungi admin.',
+      'Inquiry WhatsApp menjadi lebih terarah karena informasi dasar sudah tersedia di website.',
+      'Website dapat dipakai sebagai halaman rujukan ketika bisnis dipromosikan melalui media sosial, kartu nama, atau Google Business Profile.',
+      'Brand travel terlihat lebih kredibel dibanding hanya mengandalkan chat, katalog PDF, atau posting media sosial.',
+    ],
+    seoOpportunities: [
+      'website travel agent',
+      'company profile tour travel',
+      'paket wisata labuan bajo',
+      'jasa pembuatan website travel',
+    ],
     url: 'https://garudapariwisata.com',
     image: imgGaruda,
     imageAlt: 'Screenshot website Garuda Pariwisata',
@@ -96,6 +125,35 @@ export const projects: Project[] = [
     ],
     idealFor: ['UMKM makanan', 'Produk lokal', 'Produsen rumahan', 'Brand katalog sederhana'],
     tags: ['Food Business', 'UMKM', 'WhatsApp Inquiry'],
+    sectionBreakdown: [
+      {
+        title: 'Product-first landing page',
+        description: 'Halaman memprioritaskan produk, manfaat, dan alasan percaya agar calon pembeli cepat memahami apa yang ditawarkan.',
+        purpose: 'Mengubah produk lokal dari sekadar item jualan menjadi brand yang terasa lebih jelas dan kredibel.',
+      },
+      {
+        title: 'Trust-building product story',
+        description: 'Copy dan section produk disusun untuk menjelaskan kualitas, proses, dan konteks usaha tanpa membuat halaman terasa terlalu teknis.',
+        purpose: 'Membantu pembeli baru merasa lebih yakin sebelum melakukan inquiry atau pemesanan.',
+      },
+      {
+        title: 'Simple ordering pathway',
+        description: 'CTA pemesanan diarahkan ke alur WhatsApp/inquiry yang lebih sederhana daripada e-commerce penuh.',
+        purpose: 'Cocok untuk UMKM yang ingin mulai jualan online tanpa harus langsung membangun sistem checkout kompleks.',
+      },
+    ],
+    expectedImpact: [
+      'Calon pembeli dapat memahami produk, keunggulan, dan cara pemesanan dalam satu halaman yang rapi.',
+      'Brand UMKM terlihat lebih siap dipercaya dibanding hanya mengandalkan chat atau posting marketplace/media sosial.',
+      'Alur inquiry lebih sederhana karena calon pembeli sudah melihat informasi produk sebelum menghubungi penjual.',
+      'Website dapat digunakan sebagai landing page promosi untuk campaign lokal, link bio, atau materi penjualan.',
+    ],
+    seoOpportunities: [
+      'website produk UMKM',
+      'landing page produk makanan',
+      'website jualan makanan lokal',
+      'jasa pembuatan website UMKM',
+    ],
     url: 'https://berkahrayafarm.com',
     image: imgBerkah,
     imageAlt: 'Screenshot website Berkah Raya Farm',
