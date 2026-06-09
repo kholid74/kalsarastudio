@@ -3,52 +3,13 @@ import { Image } from 'astro:assets';
 import SectionLabel from '../ui/SectionLabel.astro';
 import WhatsAppButton from '../WhatsAppButton.astro';
 import { site } from '../../config/site';
-import imgGaruda from '../../assets/portfolio/project_garuda.png';
-import imgBerkah from '../../assets/portfolio/project_berkah_raya.png';
-import imgLumaCo from '../../assets/portfolio/project_luma_co.png';
-import imgKlinikGigi from '../../assets/portfolio/project_klinik_gigi.png';
+import { categories, projects } from '../../data/projects';
 
-const projects = [
-  {
-    title: 'Garuda Pariwisata',
-    category: 'Company Profile',
-    desc: 'Website company profile untuk bisnis tour & travel yang berfokus pada paket wisata Labuan Bajo — memudahkan calon pelanggan menemukan informasi dan melakukan reservasi via WhatsApp.',
-    tags: ['Travel & Tourism', 'WhatsApp Booking', 'SEO-Friendly'],
-    url: 'https://garudapariwisata.com',
-    image: imgGaruda,
-    imageAlt: 'Screenshot website Garuda Pariwisata',
-  },
-  {
-    title: 'Berkah Raya Farm',
-    category: 'Landing Page',
-    desc: 'Landing page untuk produsen telur asin yang memperkenalkan produk, membangun kepercayaan calon pembeli, dan mempermudah proses pemesanan secara online.',
-    tags: ['Food Business', 'UMKM', 'WhatsApp Inquiry'],
-    url: 'https://berkahrayafarm.com',
-    image: imgBerkah,
-    imageAlt: 'Screenshot website Berkah Raya Farm',
-  },
-  {
-    title: 'Luma & Co. Restaurant',
-    category: 'F&B / Restaurant',
-    desc: 'Website restaurant modern dengan showcase menu, ambience, review tamu, dan alur reservasi yang membantu calon pelanggan memahami pengalaman makan sebelum melakukan booking.',
-    tags: ['Restaurant', 'Menu Showcase', 'Reservation Flow'],
-    url: 'https://luna-co-restaurant.vercel.app/',
-    image: imgLumaCo,
-    imageAlt: 'Screenshot website Luma & Co. Restaurant',
-  },
-  {
-    title: 'Klinik Gigi Senyum Sehat',
-    category: 'Clinic / Healthcare',
-    badge: 'Showcase',
-    desc: 'Showcase website klinik gigi dengan struktur layanan, profil dokter, artikel edukasi, informasi asuransi, dan alur booking online untuk membantu pasien membuat janji lebih mudah.',
-    tags: ['Clinic Website', 'Online Booking', 'Healthcare SEO'],
-    url: 'https://klinik-gigi-platform.vercel.app/',
-    image: imgKlinikGigi,
-    imageAlt: 'Screenshot showcase website Klinik Gigi Senyum Sehat',
-  },
-];
-
-const categories = ['Semua', 'Company Profile', 'Landing Page', 'F&B / Restaurant', 'Clinic / Healthcare', 'E-Commerce'] as const;
+const statusClass = {
+  'Client Project': 'text-blue bg-blue/8 border-blue/15',
+  'Showcase Concept': 'text-amber-700 bg-amber-50 border-amber-200',
+  'Coming Soon': 'text-muted bg-gray-50 border-border',
+};
 ---
 
 <section class="bg-surface py-20 md:py-28 px-6" id="karya">
@@ -60,7 +21,7 @@ const categories = ['Semua', 'Company Profile', 'Landing Page', 'F&B / Restauran
         Yang Sudah Kami Bangun
       </h2>
       <p class="font-body text-base text-muted mt-4 max-w-xl leading-relaxed">
-        Beberapa website dan solusi digital yang kami bangun untuk membantu bisnis tampil lebih profesional dan berkembang secara digital.
+        Website dan showcase yang kami bangun untuk berbagai kebutuhan bisnis lokal — dari company profile, F&B, hingga klinik dan healthcare.
       </p>
     </div>
 
@@ -87,7 +48,7 @@ const categories = ['Semua', 'Company Profile', 'Landing Page', 'F&B / Restauran
     <div id="portfolio-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-10">
 
       {projects.map((p, i) => (
-        <div
+        <article
           class="portfolio-card bg-white border border-border rounded-xl overflow-hidden flex flex-col group shadow-card hover:shadow-card-hover hover:-translate-y-1 transition-all duration-200"
           data-category={p.category}
           data-reveal
@@ -103,7 +64,7 @@ const categories = ['Semua', 'Company Profile', 'Landing Page', 'F&B / Restauran
                 <p class="font-body text-xs text-muted truncate">{p.url.replace('https://', '')}</p>
               </div>
             </div>
-            <div class="aspect-[16/10] bg-gray-100 overflow-hidden">
+            <a href={`/karya/${p.slug}/`} class="block aspect-[16/10] bg-gray-100 overflow-hidden" aria-label={`Lihat detail ${p.title}`}>
               <Image
                 src={p.image}
                 alt={p.imageAlt}
@@ -114,7 +75,7 @@ const categories = ['Semua', 'Company Profile', 'Landing Page', 'F&B / Restauran
                 class="w-full h-full object-cover object-top group-hover:scale-[1.02] transition-transform duration-300"
                 loading="lazy"
               />
-            </div>
+            </a>
           </div>
 
           <!-- Card content -->
@@ -122,37 +83,49 @@ const categories = ['Semua', 'Company Profile', 'Landing Page', 'F&B / Restauran
             <div class="flex items-start justify-between gap-2 mb-2">
               <h3 class="font-heading font-bold text-base text-ink">{p.title}</h3>
               <div class="shrink-0 flex flex-col items-end gap-1">
-                {p.badge && (
-                  <span class="font-body text-[10px] font-semibold uppercase tracking-wider text-amber-700 bg-amber-50 border border-amber-200 rounded-full px-2 py-0.5 whitespace-nowrap">
-                    {p.badge}
-                  </span>
-                )}
+                <span class:list={[
+                  'font-body text-[10px] font-semibold uppercase tracking-wider border rounded-full px-2 py-0.5 whitespace-nowrap',
+                  statusClass[p.status],
+                ]}>
+                  {p.status}
+                </span>
                 <span class="font-body text-xs font-medium text-blue bg-blue/8 border border-blue/15 rounded-full px-2.5 py-0.5 whitespace-nowrap">
                   {p.category}
                 </span>
               </div>
             </div>
-            <p class="font-body text-sm text-muted leading-relaxed mb-4 flex-1">{p.desc}</p>
-            <div class="flex flex-wrap gap-1.5 mb-4">
-              {p.tags.map((tag) => (
+            <p class="font-body text-sm text-muted leading-relaxed mb-4 flex-1">{p.summary}</p>
+            <div class="flex flex-wrap gap-1.5 mb-5">
+              {p.tags.slice(0, 3).map((tag) => (
                 <span class="font-body text-xs text-muted/70 border border-border rounded-full px-2.5 py-0.5">
                   {tag}
                 </span>
               ))}
             </div>
-            <a
-              href={p.url}
-              target="_blank"
-              rel="noopener noreferrer"
-              class="inline-flex items-center gap-1.5 font-body font-semibold text-sm text-blue hover:text-blue/80 transition-colors"
-            >
-              Lihat Website
-              <svg xmlns="http://www.w3.org/2000/svg" class="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" />
-              </svg>
-            </a>
+            <div class="flex flex-wrap items-center gap-3">
+              <a
+                href={`/karya/${p.slug}/`}
+                class="inline-flex items-center gap-1.5 font-body font-semibold text-sm text-blue hover:text-blue/80 transition-colors"
+              >
+                Lihat Detail
+                <svg xmlns="http://www.w3.org/2000/svg" class="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" />
+                </svg>
+              </a>
+              <a
+                href={p.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                class="inline-flex items-center gap-1.5 font-body font-semibold text-sm text-muted hover:text-ink transition-colors"
+              >
+                Buka Website
+                <svg xmlns="http://www.w3.org/2000/svg" class="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M7.5 7.5h9m0 0v9m0-9-9 9" />
+                </svg>
+              </a>
+            </div>
           </div>
-        </div>
+        </article>
       ))}
 
       <!-- Coming soon: E-Commerce -->
