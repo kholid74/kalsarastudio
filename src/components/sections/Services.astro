@@ -3,18 +3,10 @@ import SectionLabel from '../ui/SectionLabel.astro';
 
 const services = [
   {
-    id:      'company-profile',
-    name:    'Website Company Profile',
-    problem: 'Bisnis Anda kehilangan kredibilitas karena belum punya website profesional.',
-    solution:'Kami bangun website yang mencerminkan identitas bisnis Anda — bersih, cepat, dan mudah ditemukan di Google.',
-    price:   'Mulai Rp3.500.000',
-    dark:    false,
-  },
-  {
-    id:      'landing-page',
-    name:    'Landing Page',
-    problem: 'Iklan digital Anda menghabiskan banyak budget tapi konversinya rendah.',
-    solution:'Landing page yang berfokus pada satu tujuan: mengubah pengunjung menjadi pelanggan atau prospek.',
+    id:      'foundation',
+    name:    'Website Company Profile & Landing Page',
+    problem: 'Bisnis Anda belum punya website profesional, atau iklan digital Anda menghabiskan budget tanpa konversi yang jelas.',
+    solution:'Kami bangun website atau landing page yang mencerminkan identitas bisnis Anda — bersih, cepat, rapi di HP, dan mudah ditemukan di Google.',
     price:   'Mulai Rp3.500.000',
     dark:    false,
   },
@@ -22,16 +14,16 @@ const services = [
     id:      'ecommerce',
     name:    'E-Commerce',
     problem: 'Anda bergantung pada marketplace pihak ketiga dan kehilangan kontrol atas data pelanggan.',
-    solution:'Toko online mandiri yang mudah Anda kelola — dengan sistem manajemen produk, pesanan, dan pembayaran.',
+    solution:'Toko online mandiri dengan katalog produk, dashboard pesanan, pembayaran online, dan CMS yang bisa Anda kelola sendiri.',
     price:   'Mulai Rp7.500.000',
     dark:    false,
   },
   {
-    id:      'custom-app',
-    name:    'Custom Web Application',
+    id:      'custom-solution',
+    name:    'Custom Solution',
     problem: 'Proses bisnis Anda manual dan tidak efisien karena tidak ada sistem yang sesuai.',
-    solution:'Sistem digital yang dirancang khusus: dashboard, CRM, portal, booking, atau automasi sesuai kebutuhan bisnis Anda.',
-    price:   'Diskusi',
+    solution:'Sistem digital yang dirancang khusus untuk proses bisnis Anda — booking klinik, portal pendaftaran sekolah, dashboard penjualan, CRM, atau automasi.',
+    price:   'Mulai Rp15.000.000',
     dark:    true,
   },
 ] as const;
@@ -46,12 +38,12 @@ const services = [
       </h2>
     </div>
 
-    <div class="services-grid grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-0 border border-border rounded-xl overflow-hidden shadow-card" data-reveal data-reveal-delay="100">
+    <div class="services-grid grid grid-cols-1 md:grid-cols-3 gap-0 border border-border rounded-xl overflow-hidden shadow-card" data-reveal data-reveal-delay="100">
       {services.map((s) => (
         <div
           data-service={s.id}
           class={[
-            'service-card relative flex flex-col p-7 border-b xl:border-b-0 xl:border-r border-border last:border-0',
+            'service-card relative flex flex-col p-7 border-b md:border-b-0 md:border-r border-border last:border-0',
             'border-t-4 transition-all duration-300',
             s.dark ? 'bg-navy border-t-cyan text-white' : 'bg-white border-t-blue text-ink hover:bg-surface',
           ].join(' ')}

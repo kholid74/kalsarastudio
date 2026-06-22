@@ -47,7 +47,7 @@ const organizationLd = {
   knowsAbout: [
     'Web Development',
     'Software Engineering',
-    'Custom Web Application',
+    'Custom Solution',
     'E-Commerce',
     'Landing Page',
     'Company Profile Website',
@@ -86,7 +86,7 @@ const serviceLd = {
       },
       {
         '@type': 'Offer',
-        itemOffered: { '@type': 'Service', name: 'Custom Web Application' },
+        itemOffered: { '@type': 'Service', name: 'Custom Solution' },
         price: '15000000',
         priceCurrency: 'IDR',
       },
@@ -100,18 +100,10 @@ const faqLd = {
   mainEntity: [
     {
       '@type': 'Question',
-      name: 'Apakah domain dan hosting sudah termasuk dalam harga?',
-      acceptedAnswer: {
-        '@type': 'Answer',
-        text: 'Biaya domain dan hosting tidak termasuk dalam paket harga kami. Kami akan memberikan rekomendasi penyedia hosting yang sesuai dengan kebutuhan dan anggaran Anda, serta membantu proses setup-nya.',
-      },
-    },
-    {
-      '@type': 'Question',
       name: 'Berapa lama proses pengerjaan website?',
       acceptedAnswer: {
         '@type': 'Answer',
-        text: 'Tergantung pada kompleksitas proyek. Company profile dan landing page biasanya selesai dalam 2–3 minggu. E-commerce 3–5 minggu. Custom web application didiskusikan berdasarkan scope pekerjaan.',
+        text: 'Foundation (company profile & landing page) biasanya selesai dalam 7–14 hari kerja. Growth (e-commerce) 14–21 hari kerja. Custom Solution 30–60 hari kerja, tergantung kompleksitas.',
       },
     },
     {
@@ -119,7 +111,31 @@ const faqLd = {
       name: 'Berapa kali revisi yang diperbolehkan?',
       acceptedAnswer: {
         '@type': 'Answer',
-        text: 'Setiap paket mencakup revisi yang disepakati di awal dalam proposal. Revisi di luar scope dapat diakomodasi dengan biaya tambahan yang transparan sebelum dikerjakan.',
+        text: 'Setiap paket mencakup 2 kali revisi desain sebelum development dimulai. Setelah website live, revisi konten minor (teks, gambar) dapat dilakukan selama masa support tanpa biaya tambahan.',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: 'Apakah domain dan hosting sudah termasuk dalam harga?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Tidak termasuk. Kami membantu merekomendasikan penyedia hosting dan memandu setup. Biaya domain biasanya Rp100.000–200.000/tahun dan hosting mulai dari Rp50.000/bulan.',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: 'Apakah termasuk copywriting dan foto produk?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Tidak termasuk. Kami fokus pada pembangunan website: desain, struktur, dan sistem. Untuk copywriting dan fotografi, Anda bisa menyiapkan sendiri dengan panduan format dari kami.',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: 'Saya sudah punya domain. Apakah bisa dipakai?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Bisa. Kami akan membantu menghubungkan domain Anda ke hosting baru tanpa kehilangan email atau konfigurasi yang sudah ada.',
       },
     },
     {
@@ -127,23 +143,15 @@ const faqLd = {
       name: 'Siapa yang memiliki source code dan konten website?',
       acceptedAnswer: {
         '@type': 'Answer',
-        text: 'Anda. Setelah pelunasan, seluruh source code, aset, dan konten website menjadi hak milik Anda sepenuhnya. Tidak ada biaya lisensi atau ketergantungan pada platform kami.',
+        text: 'Anda. Setelah pelunasan, seluruh source code, aset desain, dan konten website menjadi hak milik Anda sepenuhnya. Tidak ada biaya lisensi atau ketergantungan pada kami.',
       },
     },
     {
       '@type': 'Question',
-      name: 'Apakah ada layanan maintenance setelah website diluncurkan?',
+      name: 'Bisakah website ini dikembangkan menjadi sistem yang lebih besar?',
       acceptedAnswer: {
         '@type': 'Answer',
-        text: 'Ya. Setiap paket mencakup periode support setelah launch. Kami juga menyediakan paket maintenance bulanan untuk update konten, keamanan, dan performa.',
-      },
-    },
-    {
-      '@type': 'Question',
-      name: 'Apakah website yang dibangun bisa dikembangkan menjadi aplikasi lebih besar?',
-      acceptedAnswer: {
-        '@type': 'Answer',
-        text: 'Ya. Website kami dibangun di atas arsitektur yang dapat berkembang. Ketika bisnis Anda siap, kami dapat membangun dashboard, CRM, sistem internal, atau aplikasi custom di atas fondasi yang sudah ada.',
+        text: 'Bisa. Website Anda dibangun dengan arsitektur yang dapat berkembang — dari company profile ke dashboard penjualan, dari landing page ke sistem booking, atau dari website sekolah ke portal pendaftaran online.',
       },
     },
   ],

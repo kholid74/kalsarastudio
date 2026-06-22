@@ -1,14 +1,9 @@
 ---
 import SectionLabel from '../ui/SectionLabel.astro';
 
-type Category = 'umum' | 'proses' | 'harga' | 'teknis';
+type Category = 'proses' | 'harga' | 'teknis';
 
 const categories: Record<Category, { label: string; icon: string; color: string }> = {
-  umum: {
-    label: 'Umum',
-    icon: 'M2.25 12.76c0 1.6 1.123 2.994 2.707 3.227 1.068.157 2.148.279 3.238.364.466.037.893.281 1.153.671L12 21l2.652-3.978c.26-.39.687-.634 1.153-.67 1.09-.086 2.17-.208 3.238-.365 1.584-.233 2.707-1.626 2.707-3.228V6.741c0-1.602-1.123-2.995-2.707-3.228A48.394 48.394 0 0 0 12 3c-2.392 0-4.744.175-7.043.513C3.373 3.746 2.25 5.14 2.25 6.741v6.018Z',
-    color: 'blue',
-  },
   proses: {
     label: 'Proses & Timeline',
     icon: 'M12 6v6h4.5m4.5 0a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z',
@@ -30,32 +25,37 @@ const faqs: Array<{ q: string; a: string; cat: Category }> = [
   {
     cat: 'proses',
     q: 'Berapa lama proses pengerjaan website?',
-    a: 'Tergantung pada kompleksitas proyek. Company profile dan landing page biasanya selesai dalam 2–3 minggu. E-commerce 3–5 minggu. Custom web application didiskusikan berdasarkan scope pekerjaan.',
+    a: 'Foundation (company profile & landing page) biasanya selesai dalam 7–14 hari kerja. Growth (e-commerce) 14–21 hari kerja. Custom Solution 30–60 hari kerja, tergantung kompleksitas. Timeline detail akan kami sampaikan dalam proposal setelah scope disepakati.',
   },
   {
     cat: 'proses',
     q: 'Berapa kali revisi yang diperbolehkan?',
-    a: 'Setiap paket mencakup revisi yang disepakati di awal dalam proposal. Revisi di luar scope dapat diakomodasi dengan biaya tambahan yang transparan sebelum dikerjakan.',
+    a: 'Setiap paket mencakup 2 kali revisi desain sebelum development dimulai. Setelah website live, revisi konten minor (teks, gambar, informasi) dapat dilakukan selama masa support tanpa biaya tambahan. Perubahan struktur, fitur baru, atau halaman tambahan di luar scope awal akan kami sampaikan estimasi biayanya secara transparan sebelum dikerjakan.',
   },
   {
     cat: 'harga',
     q: 'Apakah domain dan hosting sudah termasuk dalam harga?',
-    a: 'Biaya domain dan hosting tidak termasuk dalam paket harga kami. Kami akan memberikan rekomendasi penyedia hosting yang sesuai dengan kebutuhan dan anggaran Anda, serta membantu proses setup-nya.',
+    a: 'Tidak termasuk. Kami akan membantu merekomendasikan penyedia hosting yang sesuai dengan kebutuhan Anda dan memandu proses setup-nya. Biaya domain biasanya Rp100.000–200.000/tahun dan hosting mulai dari Rp50.000/bulan, tergantung penyedia dan spesifikasi.',
   },
   {
     cat: 'harga',
-    q: 'Apakah ada layanan maintenance setelah website diluncurkan?',
-    a: 'Ya. Setiap paket mencakup periode support setelah launch. Kami juga menyediakan paket maintenance bulanan untuk update konten, keamanan, dan performa — yang bisa didiskusikan sesuai kebutuhan.',
+    q: 'Apakah termasuk copywriting dan foto produk?',
+    a: 'Tidak termasuk. Kami fokus pada pembangunan website: desain, struktur, dan sistem. Untuk copywriting dan fotografi produk, Anda bisa menyiapkan sendiri dengan panduan format dari kami.',
+  },
+  {
+    cat: 'harga',
+    q: 'Saya sudah punya domain. Apakah bisa dipakai untuk website dari Kalsara?',
+    a: 'Bisa. Jika Anda sudah memiliki domain, kami akan membantu menghubungkannya ke hosting baru tanpa kehilangan email atau konfigurasi yang sudah ada. Tidak ada biaya tambahan untuk ini.',
   },
   {
     cat: 'teknis',
     q: 'Siapa yang memiliki source code dan konten website?',
-    a: 'Anda. Setelah pelunasan, seluruh source code, aset, dan konten website menjadi hak milik Anda sepenuhnya. Tidak ada biaya lisensi atau ketergantungan pada platform kami.',
+    a: 'Anda. Setelah pelunasan, seluruh source code, aset desain, dan konten website menjadi hak milik Anda sepenuhnya. Tidak ada biaya lisensi atau ketergantungan pada kami. Kalau suatu saat Anda ingin pindah atau dikelola developer lain, kami akan bantu serah-terima dengan rapi.',
   },
   {
     cat: 'teknis',
-    q: 'Apakah website yang dibangun bisa dikembangkan menjadi aplikasi lebih besar?',
-    a: 'Inilah salah satu keunggulan utama Kalsara. Website yang kami bangun menggunakan arsitektur yang dapat berkembang. Ketika bisnis Anda siap, kami dapat membangun dashboard, CRM, sistem internal, atau aplikasi custom di atas fondasi yang sudah ada.',
+    q: 'Bisakah website ini dikembangkan menjadi sistem yang lebih besar?',
+    a: 'Bisa. Inilah salah satu keunggulan Kalsara. Website Anda dibangun dengan arsitektur yang dapat berkembang — dari company profile ke dashboard penjualan, dari landing page ke sistem booking, atau dari website sekolah ke portal pendaftaran online. Anda tidak perlu membangun ulang dari nol saat bisnis berkembang.',
   },
 ];
 
