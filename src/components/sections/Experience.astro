@@ -54,16 +54,8 @@ const statusClass = {
           data-reveal
           data-reveal-delay={(i * 100).toString()}
         >
-          <!-- Browser mockup screenshot -->
+          <!-- Screenshot -->
           <div class="border-b border-border">
-            <div class="bg-gray-50 px-3 py-2.5 flex items-center gap-1.5">
-              <div class="w-2.5 h-2.5 rounded-full bg-red-300"></div>
-              <div class="w-2.5 h-2.5 rounded-full bg-yellow-300"></div>
-              <div class="w-2.5 h-2.5 rounded-full bg-green-300"></div>
-              <div class="ml-2 flex-1 bg-white border border-border rounded px-2 py-0.5">
-                <p class="font-body text-xs text-muted truncate">{p.url.replace('https://', '')}</p>
-              </div>
-            </div>
             <a href={`/karya/${p.slug}/`} class="block aspect-[16/10] bg-gray-100 overflow-hidden" aria-label={`Lihat detail ${p.title}`}>
               <Image
                 src={p.image}
