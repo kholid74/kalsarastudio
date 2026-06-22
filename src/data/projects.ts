@@ -4,6 +4,7 @@ import imgGaruda from '../assets/portfolio/project_garuda.png';
 import imgBerkah from '../assets/portfolio/project_berkah_raya.png';
 import imgLumaCo from '../assets/portfolio/project_luma_co.png';
 import imgKlinikGigi from '../assets/portfolio/project_klinik_gigi.png';
+import imgMeridian from '../assets/portfolio/project_meridian_residences.png';
 
 export type ProjectStatus = 'Client Project' | 'Showcase Concept' | 'Coming Soon';
 
@@ -12,6 +13,7 @@ export type ProjectCategory =
   | 'Landing Page'
   | 'F&B / Restaurant'
   | 'Clinic / Healthcare'
+  | 'Property / Real Estate'
   | 'E-Commerce';
 
 export type Project = {
@@ -277,6 +279,70 @@ export const projects: Project[] = [
     image: imgKlinikGigi,
     imageAlt: 'Screenshot showcase website Klinik Gigi Senyum Sehat',
   },
+  {
+    slug: 'the-meridian-residences',
+    title: 'The Meridian Residences',
+    status: 'Showcase Concept',
+    category: 'Property / Real Estate',
+    industry: 'Property / Real Estate',
+    type: 'Luxury Apartment Website',
+    summary: 'Showcase concept website apartemen mewah yang menonjolkan unit, amenitas, lokasi, dan investment proposition dalam pengalaman digital premium.',
+    desc: 'Showcase concept website apartemen mewah "The Meridian Residences" di Kebayoran Baru, South Jakarta — menampilkan koleksi unit, amenitas, galeri, lokasi strategis, dan alur inquiry untuk prospective buyer.',
+    challenge: 'Pengembang properti dan agen marketing membutuhkan website yang membuat apartemen atau cluster terlihat eksklusif, informatif, dan layak diinvestasikan — tanpa terasa seperti brosur generik.',
+    solution: 'Website disusun dengan penekanan pada hierarchy premium: hero emosional, unit showcase dengan visual besar, amenitas yang diceritakan sebagai lifestyle, lokasi strategis dengan konteks, dan alur inquiry/download brosur yang terintegrasi.',
+    features: [
+      'Unit type showcase with sqm details',
+      'Amenities gallery with lifestyle framing',
+      'Location section with neighbourhood context',
+      'Gallery with full-width visual',
+      'Downloadable brochure flow',
+      'Schedule a Visit inquiry',
+      'WhatsApp enquiry integration',
+      'Premium mobile-first layout',
+      'Language switcher',
+    ],
+    decisions: [
+      'CTA inquiry ditempatkan di hero, navigation, dan penutup agar selalu mudah dijangkau.',
+      'Unit ditampilkan dengan sqm, visual besar, dan "View Residence" — bukan hanya grid katalog.',
+      'Lokasi dan amenitas diceritakan sebagai lifestyle value, bukan sekadar checklist fasilitas.',
+      'Download brochure dan Schedule a Visit dibuat terpisah untuk menangkap two-tier buyer intent.',
+    ],
+    idealFor: ['Developer properti', 'Apartemen mewah', 'Cluster premium', 'Townhouse', 'Agen properti eksklusif', 'Kost eksklusif'],
+    tags: ['Property Website', 'Luxury Living', 'Premium Inquiry'],
+    sectionBreakdown: [
+      {
+        title: 'Emotional hero with dual CTA',
+        description: 'Hero dibuka dengan visual atmosferik dan dua CTA berbeda: Schedule Visit dan Download Brochure, menangkap buyer di dua stage berbeda.',
+        purpose: 'Membuat prospective buyer langsung merasa value eksklusivitas properti dan punya jalur inquiry sesuai tingkat kesiapan mereka.',
+      },
+      {
+        title: 'Unit type narrative showcase',
+        description: 'Setiap unit ditampilkan dengan nama (bukan hanya tipe kode), luas sqm, visual besar, dan link yang mengundang eksplorasi lebih dalam.',
+        purpose: 'Membantu buyer memahami spektrum pilihan unit dengan cara yang terasa curated dan premium.',
+      },
+      {
+        title: 'Lifestyle-driven amenities and location',
+        description: 'Amenitas dan lokasi diceritakan melalui lensa lifestyle: Sky Infinity Pool, Wellness Pavilion, Resident\'s Lounge — bukan daftar fasilitas teknis.',
+        purpose: 'Mengubah fasilitas menjadi bagian dari cerita hidup di Meridian, bukan sekadar daftar ceklis.',
+      },
+    ],
+    expectedImpact: [
+      'Calon buyer dapat menjelajahi unit, amenitas, dan lokasi secara mendalam tanpa harus bertanya dari awal via WhatsApp.',
+      'Dua jalur inquiry (visit dan brochure) menyaring buyer intent sehingga tim sales bisa prioritas follow-up.',
+      'Website berfungsi sebagai alat sales yang bisa dikirimkan setelah pameran, iklan, atau referensi.',
+      'Properti terlihat jauh lebih premium dibanding listing platform atau katalog PDF.',
+    ],
+    seoOpportunities: [
+      'website apartemen mewah jakarta',
+      'contoh website properti',
+      'apartemen kebayoran baru',
+      'luxury apartment website',
+      'jasa pembuatan website properti',
+    ],
+    url: 'https://luxury-apartment-three.vercel.app/',
+    image: imgMeridian,
+    imageAlt: 'Screenshot showcase website The Meridian Residences',
+  },
 ];
 
 export const categories = [
@@ -285,6 +351,7 @@ export const categories = [
   'Landing Page',
   'F&B / Restaurant',
   'Clinic / Healthcare',
+  'Property / Real Estate',
   'E-Commerce',
 ] as const;
 
